@@ -7,6 +7,7 @@
 
 // declare global variables
 var hunterName = "Wesley";
+var guideName = "Hunchback Lou";
 var readyToHunt;
 var huntingSites = ["graveyard", "cave", "monestary", "crypts"];
 var hoursUntilSundown = 8;
@@ -25,10 +26,12 @@ function huntAlone ( x ) {
 };
 
 
+
 // String Function
-function guideDecision ( x,y) {
-	
-}
+function guideDecision ( x,y ) {
+	console.log ( x + ", you can have " + y + " go with you as a guide if you like.")
+};
+
 
 
 // Boolean Function returns true or false and assigns to readyToHunt variable.
@@ -69,10 +72,12 @@ function keepHunting ( x ) {
 //Returned Values call fuctions
 huntAlone (8);
 qtyStakes (11);
-console.log ("Is " + hunterName + " ready to hunt? " + readyToHunt)
+console.log ("Is " + hunterName + " ready to hunt? " + readyToHunt);
+guideDecision ( hunterName, guideName );
 whereToHunt ( huntingSites, huntingSites.length );
-keepHunting (hoursUntilSundown)
-console.log (hoursUntilSunrise + " hours until sunrise!")
+keepHunting (hoursUntilSundown);
+console.log (hoursUntilSunrise + " hours until sunrise!");
+
 
 
 //Output
