@@ -3,15 +3,12 @@
 // Project 2
 // Vampire Hunters
 
-// alert("JavaScript works!");
+
 
 // declare global variables
 var hunterName = "Wesley";
-var nightsHunting = 8;
-var typeProtection = "crucifix";
 var readyToHunt;
 var huntingSites = ["graveyard", "cave", "monestary", "crypts"];
-var minutesSpentHunting = [120, 60, 240, 120];
 var totalTime = 0;
 
 
@@ -30,7 +27,7 @@ function huntAlone ( x ) {
 
 // Boolean Function
 function qtyStakes  ( x ) {
-	if ( x >=5 ) {
+	if ( x >=10 ) {
 		console.log (hunterName + ", you are ready to go vampire hunting!")
 		readyToHunt = true;
 	}
@@ -43,15 +40,15 @@ function qtyStakes  ( x ) {
 
 
 
-
-
 // String Function
 
 
 
 // Array Function
-for (var i=0, j=huntingSites.length; i < j; i++) {
-	console.log ( hunterName  + " will hunt vampires in the " + huntingSites[i] + " for " + minutesSpentHunting[i] + " minutes." );
+function whereToHunt ( x,y ) {
+ 	for (var i=0; i < y; i++) {
+		console.log ( hunterName  + " will hunt vampires in the " + huntingSites[i] + ".");
+ 	}
 };
 
 
@@ -61,8 +58,10 @@ for (var i=0, j=huntingSites.length; i < j; i++) {
 	
 
 //Returned Values call fuctions
-huntAlone (11);
-qtyStakes (10);
+huntAlone (8);
+qtyStakes (11);
+console.log ("Is " + hunterName + " ready to hunt? " + readyToHunt)
+whereToHunt ( huntingSites, huntingSites.length );
 
 
 //Output
