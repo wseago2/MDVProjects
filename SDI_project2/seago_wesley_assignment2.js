@@ -29,7 +29,7 @@ function huntAlone ( x ) {
 
 // String Function
 function guideDecision ( x,y ) {
-	console.log ( x + ", you can have " + y + " go with you as a guide if you like.")
+	console.log ( x + ", you can have " + y + " go with you to show you the hunting grounds if you like.")
 };
 
 
@@ -70,7 +70,9 @@ function keepHunting ( x ) {
 	
 
 //Returned Values call fuctions
+console.log ( hunterName + ", how many days have you hunted vampires?");
 huntAlone (8);
+console.log ( hunterName + ", do you have your supplies?");
 qtyStakes (11);
 console.log ("Is " + hunterName + " ready to hunt? " + readyToHunt);
 guideDecision ( hunterName, guideName );
