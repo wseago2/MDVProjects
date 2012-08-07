@@ -8,11 +8,11 @@
 // declare global variables
 var hunterName = "Wesley";
 var nightsHunting = 8;
-var qtyStakes = 10;
 var typeProtection = "crucifix";
 var readyToHunt;
 var huntingSites = ["graveyard", "cave", "monestary", "crypts"];
 var minutesSpentHunting = [120, 60, 240, 120];
+var totalTime = 0;
 
 
 
@@ -27,21 +27,22 @@ else {
 
 
 // Boolean Function
-if (qtyStakes >=5 && typeProtection === "crucifix") {
-	console.log (hunterName + ", you are ready to go vampire hunting!")
-	readyToHunt = true;
+function qtyStakes  ( x ) {
+	if ( x >=5 ) {
+		console.log (hunterName + ", you are ready to go vampire hunting!")
+		readyToHunt = true;
+	}
+	else {
+		console.log (hunterName + ", you are not prepared to go vampire hunting!")
+		readyToHunt = false;
+	}
 }
-else {
-	console.log (hunterName + ", you are not prepared to go vampire hunting!")
-	readyToHunt = false;
-};
+
+qtyStakes (3);
 
 // Check readyToHunt is being assigned properly
 //console.log (readyToHunt);
 
-
-
-// Number Function
 
 
 // String Function
@@ -51,12 +52,16 @@ else {
 // Array Function
 for (var i=0, j=huntingSites.length; i < j; i++) {
 	console.log ( hunterName  + " will hunt vampires in the " + huntingSites[i] + " for " + minutesSpentHunting[i] + " minutes." );
-}
+};
 
 
 
-//Returned Values
+// Number Function
 
+	
+
+//Returned Values call fuctions
+qtyStakes (10);
 
 
 //Output
