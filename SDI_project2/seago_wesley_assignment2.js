@@ -9,7 +9,8 @@
 var hunterName = "Wesley";
 var readyToHunt;
 var huntingSites = ["graveyard", "cave", "monestary", "crypts"];
-var totalTime = 0;
+var hoursUntilSundown = 8;
+var hoursUntilSunrise;
 
 
 
@@ -21,11 +22,16 @@ function huntAlone ( x ) {
 	else {
 		console.log (hunterName + " is still new at vampire hunting and should go with a guide.")
 	}
+};
+
+
+// String Function
+function guideDecision ( x,y) {
+	
 }
 
 
-
-// Boolean Function
+// Boolean Function returns true or false and assigns to readyToHunt variable.
 function qtyStakes  ( x ) {
 	if ( x >=10 ) {
 		console.log (hunterName + ", you are ready to go vampire hunting!")
@@ -39,11 +45,6 @@ function qtyStakes  ( x ) {
 
 
 
-
-// String Function
-
-
-
 // Array Function
 function whereToHunt ( x,y ) {
  	for (var i=0; i < y; i++) {
@@ -54,6 +55,14 @@ function whereToHunt ( x,y ) {
 
 
 // Number Function
+function keepHunting ( x ) {
+	while ( x > 0 ) {
+		console.log (hunterName + " it will be dark in " + x + " hours.");
+		x--;
+	}
+	console.log (hunterName + " the sun has gone down. It is not safe to continue hunting.");
+	hoursUntilSunrise = 12;
+};
 
 	
 
@@ -62,6 +71,8 @@ huntAlone (8);
 qtyStakes (11);
 console.log ("Is " + hunterName + " ready to hunt? " + readyToHunt)
 whereToHunt ( huntingSites, huntingSites.length );
+keepHunting (hoursUntilSundown)
+console.log (hoursUntilSunrise + " hours until sunrise!")
 
 
 //Output
