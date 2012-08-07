@@ -15,7 +15,7 @@ var hoursUntilSunrise;
 
 
 
-// Procedure
+// Procedure enough experience to hunt alone?
 function huntAlone ( x ) {
 	if ( x >= 5) {
 		console.log (hunterName + " is a vampire hunting pro, and can hunt on his own.")
@@ -29,7 +29,7 @@ function huntAlone ( x ) {
 
 // String Function
 function guideDecision ( x,y ) {
-	console.log ( x + ", you can have " + y + " go with you to show you the hunting grounds if you like.")
+	console.log ( x + ", you can have " + y + " go with you to show you the hunting grounds if you like.");
 };
 
 
@@ -69,7 +69,7 @@ function keepHunting ( x ) {
 
 	
 
-//Returned Values call fuctions
+// Returned Values Output
 console.log ( hunterName + ", how many days have you hunted vampires?");
 huntAlone (8);
 console.log ( hunterName + ", do you have your supplies?");
@@ -82,4 +82,4 @@ console.log (hoursUntilSunrise + " hours until sunrise!");
 
 
 
-//Output
+
