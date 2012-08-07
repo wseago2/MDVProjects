@@ -17,12 +17,14 @@ var totalTime = 0;
 
 
 // Procedure
-if (nightsHunting >= 5) {
-	console.log (hunterName + " is a vampire hunting pro, and can hunt on his own.")
+function huntAlone ( x ) {
+	if ( x >= 5) {
+		console.log (hunterName + " is a vampire hunting pro, and can hunt on his own.")
+	}
+	else {
+		console.log (hunterName + " is still new at vampire hunting and should go with a guide.")
+	}
 }
-else {
-	console.log (hunterName + " is still new at vampire hunting and should go with a guide.")
-};
 
 
 
@@ -36,12 +38,10 @@ function qtyStakes  ( x ) {
 		console.log (hunterName + ", you are not prepared to go vampire hunting!")
 		readyToHunt = false;
 	}
-}
+};
 
-qtyStakes (3);
 
-// Check readyToHunt is being assigned properly
-//console.log (readyToHunt);
+
 
 
 
@@ -61,6 +61,7 @@ for (var i=0, j=huntingSites.length; i < j; i++) {
 	
 
 //Returned Values call fuctions
+huntAlone (11);
 qtyStakes (10);
 
 
