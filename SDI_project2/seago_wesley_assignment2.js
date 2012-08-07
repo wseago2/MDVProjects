@@ -9,10 +9,11 @@
 var hunterName = "Wesley";
 var nightsHunting = 8;
 var qtyStakes = 10;
-var typeProtection = "garlic";
+var typeProtection = "crucifix";
 var readyToHunt;
 var huntingSites = ["graveyard", "cave", "monestary", "crypts"];
 var minutesSpentHunting = [120, 60, 240, 120];
+
 
 
 // Procedure
@@ -23,8 +24,9 @@ else {
 	console.log (hunterName + " is still new at vampire hunting and should go with a guide.")
 };
 
-// Boolean Function
 
+
+// Boolean Function
 if (qtyStakes >=5 && typeProtection === "crucifix") {
 	console.log (hunterName + ", you are ready to go vampire hunting!")
 	readyToHunt = true;
@@ -32,16 +34,29 @@ if (qtyStakes >=5 && typeProtection === "crucifix") {
 else {
 	console.log (hunterName + ", you are not prepared to go vampire hunting!")
 	readyToHunt = false;
-}
+};
 
-console.log (readyToHunt);
+// Check readyToHunt is being assigned properly
+//console.log (readyToHunt);
+
+
 
 // Number Function
 
+
 // String Function
 
+
+
 // Array Function
+for (var i=0, j=huntingSites.length; i < j; i++) {
+	console.log ( hunterName  + " will hunt vampires in the " + huntingSites[i] + " for " + minutesSpentHunting[i] + " minutes." );
+}
+
+
 
 //Returned Values
+
+
 
 //Output
