@@ -6,12 +6,14 @@
 
 
 // declare global variables
-var hunterName = "Wesley";
-var guideName = "Hunchback Lou";
-var readyToHunt;
-var huntingSites = ["graveyard", "cave", "monestary", "crypts"];
-var hoursUntilSundown = 8;
-var hoursUntilSunrise;
+var hunterName = "Wes";
+var readyToHunt = qtyStakes(11);
+var huntingSites = ["graveyard", "cave", "crypts", "castle"];
+var finalDecision = guideDecision("Wes", "Hunchback Lou")
+var payPerVampire = 250;
+
+huntingSites.push("monastery");
+
 
 
 
@@ -29,21 +31,23 @@ function huntAlone ( x ) {
 
 // String Function
 function guideDecision ( x,y ) {
-	console.log ( x + ", you can have " + y + " go with you to show you the hunting grounds if you like.");
+	var decision;
+	decision = x + ", you can have " + y + " go with you to show you the hunting grounds if you like.";
+	return decision;
 };
 
 
 
-// Boolean Function returns true or false and assigns to readyToHunt variable.
+// Boolean Function 
 function qtyStakes  ( x ) {
+	var goodToGo;
 	if ( x >=10 ) {
-		console.log (hunterName + ", you are ready to go vampire hunting!")
-		readyToHunt = true;
+		goodToGo = true;
 	}
 	else {
-		console.log (hunterName + ", you are not prepared to go vampire hunting!")
-		readyToHunt = false;
+		goodToGo = false;
 	}
+	return goodToGo;
 };
 
 
@@ -58,28 +62,27 @@ function whereToHunt ( x,y ) {
 
 
 // Number Function
-function keepHunting ( x ) {
+function killsNeeded ( x ) {
+	var y = 0;
 	while ( x > 0 ) {
-		console.log (hunterName + " it will be dark in " + x + " hours.");
-		x--;
+		console.log (hunterName + " you need to kill " + x + " more vampires this week in order to meet your goal.");
+		x--; y++
+		console.log (hunterName + " you have earned " + y * payPerVampire + " dollars this week!");
 	}
-	console.log (hunterName + " the sun has gone down. It is not safe to continue hunting.");
-	hoursUntilSunrise = 12;
+	return y;
 };
+		
+	
+
 
 	
 
 // Returned Values Output
-console.log ( hunterName + ", how many days have you hunted vampires?");
 huntAlone (8);
-console.log ( hunterName + ", do you have your supplies?");
-qtyStakes (11);
-console.log ("Is " + hunterName + " ready to hunt? " + readyToHunt);
-guideDecision ( hunterName, guideName );
+console.log ( hunterName + ", do you have enough stakes to go hunting vampires?");
+console.log(readyToHunt);
+console.log(finalDecision);
 whereToHunt ( huntingSites, huntingSites.length );
-keepHunting (hoursUntilSundown);
-console.log (hoursUntilSunrise + " hours until sunrise!");
-
-
+console.log(killsNeeded (1000 / payPerVampire));
 
 
