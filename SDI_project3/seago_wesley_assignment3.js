@@ -21,62 +21,56 @@
 
 
 // declare global variables
+var huntingSites = ["graveyard", "cave", "monastery", "castle"];
+var stakesRequired = 10;
+var makeStakes;
 
 
-// json data
-var hunters = { "killers"  : [
-								{ "playerId"   : "0001",
+
+// json data...contains object hunters. Each property as an array with 6 keys.
+var json = { 
+    "hunters"   : {
+		              "0001"	: {				
 								  "firstName"  : "Wes",
 								  "lastName"   : "Seago",
 								  "hunts"      : 11,
-								  "kills"      : 5
+								  "kills"      : 5,
+                                  "stakes"     : 7
 								},
-
-								{ "playerId"   : "0002",
-								  "firstName"  : "Mark",
-								  "lastName"   : "Harris",
-								  "hunts"      : 7,
-								  "kills"      : 3
-								}
-                             ],
-
-                "support"  : [
-                				{ "playerId"   : "0003",
-                				  "firstName"  : "Brian",
-                				  "lastName"   : "Abrams",
-                				  "hunts"      : 12,
-                				  "kills"      : 7
-                				},
-
-                				{ "playerId"   : "0004",
-                				  "firstName"  : "Joe",
-                				  "lastName"   : "Green",
-                				  "hunts"      : 4,
-                				  "kills"      : 1
-                				}
-                 			 ],
-
-                "guides"    : [
-                				{ "playerId"   : "0005",
+           				
+                	   "0002"   : { 
                 				  "firstName"  : "Hunchback",
                 				  "lastName"   : "Lou",
                 				  "hunts"      : 107,
-                				  "kills"      : 73
+                				  "kills"      : 73,
+                                  "stakes"     : 3
                 				},
 
-                				{ "playerId"   : "0006",
+                		"0003"	: { 
                 				  "firstName"  : "Riff",
                 				  "lastName"   : "Raff",
                 				  "hunts"      : 88,
-                				  "kills"	   : 71
+                				  "kills"	   : 71,
+                                  "stakes"     : 2
                 				}
-                			  ]
-               };
+                	}
+             };
 // check to see if json works
-console.log (hunters.guides[1].firstName);
+// console.log (json);
 
 // property: boolean (return boolean)
 
+function prepare () {
+    var haveStakes = ( json.hunters["0001"].stakes );
+    var needStakes = (stakesRequired - haveStakes);
+   
+    if ( haveStakes >= 10) {
+        console.log ("We have enough stakes to go hunting!")
+    } else {
+        console.log ("We need to make " + needStakes + " stakes to go hunting!")
+    }
+
+}
 
 // property: array (return array)
 
@@ -90,6 +84,7 @@ console.log (hunters.guides[1].firstName);
 // property object (return object)
 
 
+
 // method: procedure
 
 
@@ -97,8 +92,10 @@ console.log (hunters.guides[1].firstName);
 
 
 // method: accessor
-
+// check qty of stakes player has
 
 // method: mutator
+// update qty of stakes player has
 
 
+// prepare ();
