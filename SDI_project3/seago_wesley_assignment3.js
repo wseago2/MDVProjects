@@ -8,33 +8,85 @@
 
 // JSON data
 var json = {
-				"players": {
+				"guides": {
 							"0001" : {
-								"name"	   : "Wes",
-								"class"    : "hunter",
-								"weapon"   : "wooden stake",
-								"level"	   : 4,
-								"guide"    : false
+								"name"	   : "Eyegore",
+								"site"     : "graveyard",
+								"level"	   : 7,
+								"guide"    : true
 							},
 						
 							"0002" : {
 								"name"	   : "Hunchback Lou",
-								"class"    : "hunter",
-								"weapon"   : "wooden stake",
+								"site"     : "castle",
 								"level"	   : 10,
 								"guide"    : true
 							},
 
 							"0003" : {
 								"name"	   : "Riff Raff",
-								"class"    : "hunter",
-								"weapon"   : "wooden stake",
-								"level"	   : 1,
-								"guide"    : false
+								"site"     : "monastery",
+								"level"	   : 9,
+								"guide"    : true
 							}
 
 			}
 };
-// console.log (json); // test JSON data
+console.log (json); // test JSON data
+
+// Global Variables
+var hunter = {
+	name   : "Wes",
+	level  : 1,
+	guide  : false,
+	sites  : ["graveyard", "castle"],
+	selectGuide : function () {},
+	travelTo    : function (site) {},
+	announce    : function () {},
+	huntVampire : function () {},
+	killVampire : function () {},
+	prepare     : function () {}
+}
+//var pirate = {
+//   realName:    "Jean Lafitte",
+//    rank:        "Captain",
+//    privateer:   true,
+//    ships:       [ "La Diligent", "Pride" ],
+//    sailTo:      function (destination) {},
+//    getLocation: function () {}
+//};
+
+
+
+
+
+
+//console.log (currentHunter);
+
+
+//var pirate = { /* stuff here */ },
+//    ship   = { /* more stuff here */ },
+//    target = "Tortuga";
+//pirate.announce("Our target today is " + target + ".");
+//var myName = pirate.getRealName();    // accessor method
+//pirate.announce("We'll find plunder, or my name isn't " + myName + "!");
+//pirate.sailTo(target);                // mutator + procedure method
+//var damage = pirate.attack(target);   // function method
+//pirate.repairDamage(damage, ship);    // object argument
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
 
 
