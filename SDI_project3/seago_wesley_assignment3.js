@@ -13,70 +13,78 @@ var json = {
 								"name"	   : "Eyegore",
 								"site"     : "graveyard",
 								"level"	   : 7,
-								"guide"    : true
+								"guide"    : false
 							},
 						
 							"0002" : {
 								"name"	   : "Hunchback Lou",
 								"site"     : "castle",
 								"level"	   : 10,
-								"guide"    : true
+								"guide"    : false
 							},
 
 							"0003" : {
 								"name"	   : "Riff Raff",
 								"site"     : "monastery",
 								"level"	   : 9,
-								"guide"    : true
+								"guide"    : false
 							}
 
 			}
 };
-console.log (json); // test JSON data
+
 
 // Global Variables
-var hunter = {
-	name   : "Wes",
-	level  : 1,
-	guide  : false,
-	sites  : ["graveyard", "castle"],
-	selectGuide : function () {},
-	travelTo    : function (site) {},
-	announce    : function () {},
-	huntVampire : function () {},
-	killVampire : function () {},
-	prepare     : function () {}
+var stakesNeeded = 10;
+var qtyStakes;
+
+
+// Functions
+function hunter(name, nickname, stakes, level, guide) {
+	this.name     = name;
+	this.nickname = nickname;
+	this.stakes   = stakes;
+	this.level    = level;
+	this.guide    = guide;
 }
-//var pirate = {
-//   realName:    "Jean Lafitte",
-//    rank:        "Captain",
-//    privateer:   true,
-//    ships:       [ "La Diligent", "Pride" ],
-//    sailTo:      function (destination) {},
-//    getLocation: function () {}
-//};
+
+var wes = new hunter ("Wes Seago", "Wes", 7, 1, true);
+
+console.log (wes.name + " is our newest vampire hunter!");
+console.log ("He has " + wes.stakes + " stakes in his backpack.");
+console.log (wes.nickname + " is only a beginner, so his level is " + wes.level + ".");
+console.log ("All new hunters should have 10 stakes in their backpack before each hunting trip.");
+
+qtyStakes = (wes.stakes);
+
+
+// argument:number // math // property:string
+function prepare (stakes) {
+	var stakesToMake = (stakesNeeded - stakes);
+	if (stakesNeeded <=qtyStakes) {
+		console.log (wes.nickname + " has enough stakes to go hunting.")
+	} else {
+		console.log (wes.nickname + " needs to make " + (stakesNeeded - qtyStakes) + " stakes.");
+		wes.stakes = 10;
+		console.log (wes.nickname + " has made enough stakes to go hunting!")
+	}
+};
 
 
 
 
 
 
-//console.log (currentHunter);
-
-
-//var pirate = { /* stuff here */ },
-//    ship   = { /* more stuff here */ },
-//    target = "Tortuga";
-//pirate.announce("Our target today is " + target + ".");
-//var myName = pirate.getRealName();    // accessor method
-//pirate.announce("We'll find plunder, or my name isn't " + myName + "!");
-//pirate.sailTo(target);                // mutator + procedure method
-//var damage = pirate.attack(target);   // function method
-//pirate.repairDamage(damage, ship);    // object argument
 
 
 
 
+
+
+
+
+
+prepare (qtyStakes);
 	
 
 
