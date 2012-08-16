@@ -49,7 +49,7 @@ var wes = {
 	kills:       0,
 	qtyStakes:   7,
 	needGuide:   true,
-	weapon:      ["stake", "holy water"],
+	backpack:    ["stake", "holy water"],
 	location:    "camp",
 	travelTo:    function (destination) {
 		wes.location = destination;
@@ -60,11 +60,17 @@ var wes = {
 	},
 	huntVampire: function () {
 		wes.level++;
-		return (wes.level);
+		return wes.level;
 	},
 	killVampire: function () {
 		wes.kills++;
 		wes.qtyStakes--;
+		return wes.kills;
+	},
+	findItem: function (item) {
+		wes.backpack.push(item);
+		return wes.backpack;
+		
 	}
 };
 
@@ -104,18 +110,25 @@ if ( wes.needGuide == true ) {
 
 console.log ( "You may choose any of these guides.");
 console.log ( "Choosing " + guides[0] + " was a smart move!");
-console.log ( "How could anyone trust a guy with a name like " + guides[1] + " ?");
-
+console.log ( "How could anyone trust a guy with a name like " + guides[1] + "?");
 console.log ("Now that we are prepared to hunt, we will head over to the first hunting site.");
+
+//returns
 console.log ("Today, we will hunt at the " + wes.travelTo (json.huntingSites["0001"].name) + ".");
-
-// wes.travelTo (json.huntingSites["0001"].name);
-//console.log ("That was a long walk!");
-
 console.log ("This does not look familiar. Let me check the map!");
 wes.getLocation ();
 
-//console.log (wes.travelTo (json.huntingSites["0002"].name))
+console.log (wes.name + " found a silver crucifix while hunting." + " Backpack inventory is now " + wes.findItem ("silver crucifix"));
+
+console.log (wes.name + " hunted vampires until he reached level "+ wes.huntVampire () + " before he got to participate.");
+
+console.log ("Finally he got to kill a vampire, bringing his total kills to " + wes.killVampire () + "!");
+
+
+
+
+
+
 
 
 
