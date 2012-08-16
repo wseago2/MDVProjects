@@ -40,7 +40,6 @@ var availableSites = [json.huntingSites["0001"].name, json.huntingSites["0002"].
 // console.log (availableSites); test JSON access.
 var hunterLocation;
 var guides = ["Hunchback Lou", "Riff Raff", "Eyegore"];
-var trip;
 // console.log (availableSites); test JSON access.
 
 var wes = {
@@ -52,22 +51,27 @@ var wes = {
 	backpack:    ["stake", "holy water"],
 	location:    "camp",
 	travelTo:    function (destination) {
+		"use strict"; 
 		wes.location = destination;
 		return destination;
 	},
 	getLocation: function () {
+		"use strict";
 		console.log ("I am currently at the " + wes.location + ".");
 	},
 	huntVampire: function () {
+		"use strict";
 		wes.level++;
 		return wes.level;
 	},
 	killVampire: function () {
+		"use strict";
 		wes.kills++;
 		wes.qtyStakes--;
 		return wes.kills;
 	},
 	findItem: function (item) {
+		"use strict";
 		wes.backpack.push(item);
 		return wes.backpack;
 		
@@ -80,8 +84,8 @@ var wes = {
 // console.log (wes.location); // ahow starting location.
 // wes.travelTo (json.huntingSites["0003"].site); // method procedure.
 // console.log (wes.location); // check does travelTo method work.
-
 // wes.getLocation (wes.location); // check does getLocation method work.
+
 console.log ("Our newest vampire hunter is " + wes.name + ".");
 console.log ("Before we can go vampire hunting, we must prepare.");
 console.log ("When hunting in a new site, we must be sure to bring " + stakesNeeded + " stakes with us.");
@@ -89,7 +93,7 @@ console.log ("When hunting in a new site, we must be sure to bring " + stakesNee
 if ( wes.qtyStakes >= stakesNeeded ) {
 	console.log ( wes.name + " has enough stakes and is prepared to hunt.");
 	} else { console.log ( wes.name + " is short " + (stakesNeeded - wes.qtyStakes) + " stakes, and needs to prepare for the next hunt." );
-};
+}
 
 while ( wes.qtyStakes < stakesNeeded ) {
 	console.log ("Making a stake.");
@@ -97,12 +101,12 @@ while ( wes.qtyStakes < stakesNeeded ) {
 	console.log ("Wes now has " + wes.qtyStakes + " stakes.");
 }
 
-if ( wes.needGuide == true ) {
+if ( wes.needGuide === true ) {
 	console.log ( "Since " + wes.name + " is new at vampire hunting, we will send him with a guide.");
 	} else { console.log ( wes.name + " has enough experience to hunt alone now." );
-};
+}
 
-if ( wes.needGuide == true ) {
+if ( wes.needGuide === true ) {
 	for ( var i = 0; i < guides.length; i++) {
 		console.log ( wes.name + ", say hello to " + guides[i] + "!" );
 	}
@@ -110,6 +114,10 @@ if ( wes.needGuide == true ) {
 
 console.log ( "You may choose any of these guides.");
 console.log ( "Choosing " + guides[0] + " was a smart move!");
+
+if (guides[1] === "Riff Raff") {
+	console.log ("What kind of name is Riff Raff?");
+}
 console.log ( "How could anyone trust a guy with a name like " + guides[1] + "?");
 console.log ("Now that we are prepared to hunt, we will head over to the first hunting site.");
 
