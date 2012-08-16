@@ -40,20 +40,31 @@ var availableSites = [json.huntingSites["0001"].name, json.huntingSites["0002"].
 // console.log (availableSites); test JSON access.
 var hunterLocation;
 var guides = ["Hunchback Lou", "Riff Raff", "Eyegore"];
+var trip;
 // console.log (availableSites); test JSON access.
 
 var wes = {
 	name:        "Wes",
 	level:       1,
+	kills:       0,
 	qtyStakes:   7,
 	needGuide:   true,
-	weapon:      ["knife", "bow"],
+	weapon:      ["stake", "holy water"],
 	location:    "camp",
 	travelTo:    function (destination) {
-		wes.location = destination
+		wes.location = destination;
+		return destination;
 	},
-	getLocation: function (location) {
-		console.log ("I am currently at the " + wes.location);
+	getLocation: function () {
+		console.log ("I am currently at the " + wes.location + ".");
+	},
+	huntVampire: function () {
+		wes.level++;
+		return (wes.level);
+	},
+	killVampire: function () {
+		wes.kills++;
+		wes.qtyStakes--;
 	}
 };
 
@@ -85,8 +96,27 @@ if ( wes.needGuide == true ) {
 	} else { console.log ( wes.name + " has enough experience to hunt alone now." );
 };
 
+if ( wes.needGuide == true ) {
+	for ( var i = 0; i < guides.length; i++) {
+		console.log ( wes.name + ", say hello to " + guides[i] + "!" );
+	}
+};
+
+console.log ( "You may choose any of these guides.");
+console.log ( "Choosing " + guides[0] + " was a smart move!");
+console.log ( "How could anyone trust a guy with a name like " + guides[1] + " ?");
 
 console.log ("Now that we are prepared to hunt, we will head over to the first hunting site.");
+console.log ("Today, we will hunt at the " + wes.travelTo (json.huntingSites["0001"].name) + ".");
+
+// wes.travelTo (json.huntingSites["0001"].name);
+//console.log ("That was a long walk!");
+
+console.log ("This does not look familiar. Let me check the map!");
+wes.getLocation ();
+
+//console.log (wes.travelTo (json.huntingSites["0002"].name))
+
 
 
 
