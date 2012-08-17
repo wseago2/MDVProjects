@@ -2,7 +2,7 @@
 // Wesley Seago
 // SDI term 1208
 // Project 3
-// 8/14/2012
+// 8/16/2012
 
 
 
@@ -116,11 +116,11 @@ console.log ( "Choosing " + guides[0] + " was a smart move!");
 
 if (guides[1] === "Riff Raff") {
 	console.log ("What kind of name is Riff Raff?");
-}
+};
 console.log ( "How could anyone trust a guy with a name like " + guides[1] + "?");
 console.log ("Now that we are prepared to hunt, we will head over to the first hunting site.");
 
-//returns
+
 console.log ("Today, we will hunt at the " + wes.travelTo (json.huntingSites["0001"].name) + ".");
 console.log ("This does not look familiar. Let me check the map!");
 wes.getLocation ();
