@@ -38,7 +38,6 @@ var json = {
 var stakesNeeded = 10;
 var availableSites = [json.huntingSites["0001"].name, json.huntingSites["0002"].name, json.huntingSites["0003"].name];
 // console.log (availableSites); test JSON access.
-var hunterLocation;
 var guides = ["Hunchback Lou", "Riff Raff", "Eyegore"];
 // console.log (availableSites); test JSON access.
 
@@ -53,7 +52,7 @@ var wes = {
 	travelTo:    function (destination) {
 		"use strict"; 
 		wes.location = destination;
-		return destination;
+		return wes.location;
 	},
 	getLocation: function () {
 		"use strict";
@@ -81,7 +80,7 @@ var wes = {
 
 
 // console.log (wes); // check object.
-// console.log (wes.location); // ahow starting location.
+// console.log (wes.location); // show starting location.
 // wes.travelTo (json.huntingSites["0003"].site); // method procedure.
 // console.log (wes.location); // check does travelTo method work.
 // wes.getLocation (wes.location); // check does getLocation method work.
@@ -131,6 +130,14 @@ console.log (wes.name + " found a silver crucifix while hunting." + " Backpack i
 console.log (wes.name + " hunted vampires until he reached level "+ wes.huntVampire () + " before he got to participate.");
 
 console.log ("Finally he got to kill a vampire, bringing his total kills to " + wes.killVampire () + "!");
+
+console.log ("At the end of the first day hunting, " + wes.name + " was camped outside of the " + wes.location + ".");
+console.log ("He had finally reached level " + wes.level + ".");
+console.log ("With " + wes.kills + " kills under his belt,");
+console.log ("And a shiney new " + wes.backpack [(wes.backpack.length - 1)] + " in his backpack,");
+console.log ("he began to prepare for the next days hunt.");
+
+
 
 
 
