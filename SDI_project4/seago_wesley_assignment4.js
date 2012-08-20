@@ -6,35 +6,41 @@
 
 // String Manipulation Library
 
-var phoneNumberPattern function () {
+function phoneNumberPattern (input) {
 	// code here
 	return { };
 }
 
 
 
-var emailPattern function () {
+function emailPattern (input) {
+	// code here ref textbook pg 191-202
+	// regular expressions
+	var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+	return re.test(input);
+}
+
+console.log (emailPattern("wseago"));
+console.log (emailPattern("wseago2@gmail.com"));
+
+
+
+
+function URLPattern () {
 	//code here
 	return { };
 }
 
 
 
-var URLPattern function () {
+function titleCaseString () {
 	//code here
 	return { };
 }
 
 
 
-var titleCaseString function () {
-	//code here
-	return { };
-}
-
-
-
-var stringChangeSeparator function () {
+function stringChangeSeparator () {
 	//code here
 	return { };
 }
@@ -43,28 +49,28 @@ var stringChangeSeparator function () {
 
 // Number Manipulation Library
 
-var formatDecimalPlaces function () {
+function formatDecimalPlaces () {
 	//code here
 	return { };
 }
 
 
 
-var fuzzyMatch function () {
+function fuzzyMatch () {
 	//code here
 	return { };
 }
 
 
 
-var hoursDaysBetween function () {
+function hoursDaysBetween () {
 	//code here
 	return { };
 }
 
 
 
-var stringToNumber function () {
+function stringToNumber () {
 	//code here
 	return { };
 }
@@ -73,21 +79,21 @@ var stringToNumber function () {
 
 // Array Manipulation Library
 
-var smallestGreaterThan function () {
+function smallestGreaterThan () {
 	//code here
 	return { };
 }
 
 
 
-var totalNumberValue function () {
+function totalNumberValue () {
 	//code here
 	return { };
 }
 
 
 
-var arraySortedByKeyValue function () {
+function arraySortedByKeyValue () {
 	//code here
 	return { };
 }
