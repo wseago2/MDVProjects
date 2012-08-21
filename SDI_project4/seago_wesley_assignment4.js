@@ -3,16 +3,8 @@
 // Assignment Project 4
 // Javascript Library
 
-/*
-var myLibrary = function () {
-	// code here
-
-	return { };	
-};
-*/
-
 // String Manipulation Library
-
+// ***************************
 function phoneNumberPattern (input) {
 	var re = /^\(?(\d{3})\)?[\.\-\/]?(\d{3})[\.\-\/]?(\d{4})$/;
 	return(re.test(input));
@@ -39,68 +31,20 @@ function urlPattern (input) {
 };
 
 function titleCaseString (input) {
-	return input.replace(/\w\S*/g, function(change){return change.charAt(0).toUpperCase() + change.substr(1).toLowerCase();});
-	// 
+	return input.replace(/\w\S*/g, function(change){return change.charAt(0).toUpperCase() + change.substr(1).toLowerCase();}); 
 };
 
 function stringChangeSeparator (input) {
-	var text = input.replace (/[,-]/g,"/"); // /=begin re;[what to change (, or -)]; /g= change all; "/" what to change to.
+	var text = input.replace(/[,-]/g,"/"); // /=begin re;[what to change (, or -)]; /g= change all; "/" what to change to.
 	return (text);
 };
 
-
-
 // Number Manipulation Library
-/*
+// ***************************
 function formatDecimalPlaces (input) {
-	// code here
-	return { };
-}
-*/
-
-/*
-function fuzzyMatch () {
-	//code here
-	return { };
-}
-*/
-
-/*
-function hoursDaysBetween () {
-	//code here
-	return { };
-}
-*/
-
-/*
-function stringToNumber () {
-	//code here
-	return { };
-}
-*/
-
-/*
-// Array Manipulation Library
-
-function smallestGreaterThan () {
-	//code here
-	return { };
-}
-*/
-
-/*
-function totalNumberValue () {
-	//code here
-	return { };
-}
-*/
-
-/*
-function arraySortedByKeyValue () {
-	//code here
-	return { };
+	var newNum = parseFloat(Math.round(input * 100) / 100).toFixed(2);
+	return (newNum);
 };
-*/
 
 // Test phoneNumberPattern function.
 console.log (phoneNumberPattern("1234567890"));
@@ -120,3 +64,8 @@ console.log (titleCaseString("wesley g seago"));
 // Test stringChangeSeparator function.
 console.log (stringChangeSeparator("3,2,1"));
 console.log (stringChangeSeparator("3-2-1"));
+
+// Test formatDecimalPlaces
+console.log (formatDecimalPlaces(23.657));
+console.log (formatDecimalPlaces(4.987));
+
