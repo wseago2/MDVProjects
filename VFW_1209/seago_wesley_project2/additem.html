@@ -12,48 +12,52 @@
 		<meta name = "viewport" content = "user-scalable=no, width=device-width" />
 		<title>Medicine Tracker</title>
 		<link href="css/styles.css" rel="stylesheet" type="text/css" />
-		<script src="js/main.js" type="text/javascript"></script>
 	</head>
 	<body>
-		<header>
-			<h1>Add Medication</h1>
-		</header>
-		<form action="#" method="post">
-				<h2>Patient</h2>
-					<label for = "name" ><h3>Name</h3></label>
-					<input type="text" id="name" />
-				<h2>Medication</h2>
-					<label for = "medname" ><h3>Medication Name</h3></label>
-					<input type="text" id="medname" />
-					<h3>Type</h3>
-					<select>
-						<option>Over the Counter</option>
-	     				<option>Prescription</option>
-					</select>
-					<label for = "dosage" ><h3>Dosage Amount</h3></label>
-					<input id="dosage" type="range" min="100" max="500" step="50" />
-					<h3>Frequency</h3>
-						<ul>
-							<li><input type = "radio" id = "4" name = "dosage" checked="checked" /><label for = "4"> 4 Hours</label>
-							<li><input type = "radio" id = "6" name = "dosage" /><label for = "6"> 6 Hours</label>
-							<li><input type = "radio" id = "8" name = "dosage" /><label for = "8"> 8 Hours</label>
-							<li><input type = "radio" id = "12" name = "dosage" /><label for = "12"> 12 Hours</label>
-							<li><input type = "radio" id = "24" name = "dosage" /><label for = "24"> 24 Hours</label>
-						</ul>
-					<!-- date element for this project to keep it simple. Later change this to date/time taken and timer until next dose. -->
-					<label for = "date" ><h3>Date</h3></label>
-					<input type = "datetime" id="date"/>
-					<label for = "notes" ><h3>Notes</h3></label>
-					<textarea id = "notes">
-					</textarea>
+		<div id="container">
+			<div id="header">
+				<header>
+					<h1>Add Medication</h1>
+				</header>
+			</div>
+			<div id="article">
+				<form action="#" method="post">
+						<h2>Patient</h2>
+							<label for = "name" ><h3>Name</h3></label>
+							<input type="text" id="name" />
+						<h2>Medication</h2>
+							<label for = "medname" ><h3>Name</h3></label>
+							<input type="text" id="medname" />
+							<h3>Type</h3>
+								<li><input type = "radio" id = "radio1" name = "type" checked="checked" /><label for = "radio1">Over the Counter</label>
+								<li><input type = "radio" id = "radio2" name = "type" /><label for = "radio2">Prescription</label>
+							<label for = "dosage" ><h3>Dosage Amount</h3></label>
+							<input id="dosage" type="range" min="100" max="500" step="50" />
+							<h3>Frequency</h3>
+							<select>
+								<option>Every 4 Hours</option>
+								<option>Every 8 Hours</option>
+								<option>Every 12 Hours</option>
+								<option>Every 24 Hours</option>
+							</select>
+							<!-- date element for this project to keep it simple. Later change this to date/time taken and timer until next dose. -->
+							<label for = "date" ><h3>Date</h3></label>
+							<input type = "datetime" id="date"/>
+							<label for = "notes" ><h3>Notes</h3></label>
+							<textarea id = "notes">
+							</textarea>
+					<br>
+					<br>
+					<input type = "submit" value = "Submit" id="saveData" />
+					<input type = "hidden" value = "true" />
+				</form>
+			</div>
 			<br>
-			<br>
-			<input type = "Submit" value = "Submit" />
-			<input type = "hidden" value = "true" />
-		</form>
-		<br>
-		<a href="#">Clear Stored Data</a>
-		<a href="#">Display Data</a>
-
+			<div id="footer">
+				<a href="#" id="clearData">Clear Stored Data</a>
+				<a href="#" id="displayData">Display Data</a>
+			</div>
+		</div>
+		<script src="js/main.js" type="text/javascript"></script>
 	</body>
 </html>
