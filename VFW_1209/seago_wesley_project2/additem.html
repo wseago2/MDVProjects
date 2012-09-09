@@ -21,12 +21,12 @@
 				</header>
 			</div>
 			<div id="article">
-				<form action="#" method="post">
+				<form action="#" method="post" id="medForm" />
 					<ul id="questions">
 						<li label for = "name" >Name: </label><br><input type="text" id="name" /></li><br>
 						<li label for = "medname" >Medication: </label><br><input type="text" id="medname" /></li><br>
-						<li><input type = "radio" id = "otc" name = "type" checked="checked" /><label for = "radio1">Over the Counter</label>
-						<li><input type = "radio" id = "scrip" name = "type" /><label for = "radio2">Prescription</label><br><br>
+						<li><input type = "radio" id = "otc" name = "type" checked="checked" /><label for = "otc">Over the Counter</label>
+						<li><input type = "radio" id = "scrip" name = "type" /><label for = "scrip">Prescription</label><br><br>
 						<label for = "dosage" >Dosage Amount</label><br><input id="dosage" type="range" min="100" max="500" step="50" />
 						<li id="select"><label for="frequency">Frequency:</label><br /></li>	
 						<li label for = "date" >Date</label><br><input type = "datetime" id="date"/><br>
@@ -41,6 +41,7 @@
 			<div id="footer">
 				<a href="#" id="clear">Clear Stored Data</a>
 				<a href="#" id="displayLink">Display Data</a>
+				<a href="additem.html" id="addNew" style="display:none;">Add Medication</a>
 			</div>
 		</div>
 		<script src="js/main.js" type="text/javascript"></script>
