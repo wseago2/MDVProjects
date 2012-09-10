@@ -23,14 +23,19 @@
 			<div id="article">
 				<form action="#" method="post" id="medForm" />
 					<ul id="questions">
-						<li label for = "name" >Name: </label><br><input type="text" id="name" /></li><br>
-						<li label for = "medname" >Medication: </label><br><input type="text" id="medname" /></li><br>
-						<li><input type = "radio" id = "otc" name = "type" checked="checked" /><label for = "otc">Over the Counter</label>
-						<li><input type = "radio" id = "scrip" name = "type" /><label for = "scrip">Prescription</label><br><br>
-						<label for = "dosage" >Dosage Amount</label><br><input id="dosage" type="range" min="100" max="500" step="50" />
+						<li label for = "name" >Name: </label><br><input type="text" id="name" /></li>
+						<li label for = "medname" >Medication: </label><br><input type="text" id="medname" /></li>
+			<!--			<li><input type = "radio" id = "otc" name = "type" checked="checked" /><label for = "otc">Over the Counter</li></label>-->
+						<li label for = "type" >Type: </label><br>
+							<input type = "radio" id="Over the Counter" name = "type" checked="checked">Over the Counter</li>
+							<input type = "radio" id="Prescription" name = "type">Prescription</li>
+							<br>
+							
+			<!--<li><input type = "radio" id = "scrip" name = "type" /><label for = "scrip">Prescription</li></label><br>-->
+						<li label for = "dosage" >Dosage Amount (ml): </label><br><input id="dosage" type="range" min="100" max="500" step="50" />
 						<li id="select"><label for="frequency">Frequency:</label><br /></li>	
-						<li label for = "date" >Date</label><br><input type = "datetime" id="date"/><br>
-						<li label for = "notes" >Notes</label><br><textarea id = "notes"></textarea>		
+						<li label for = "date" >Date: </label><br><input type = "datetime" id="date"/><br>
+						<li label for = "notes" >Notes: </label><br><textarea id = "notes"></textarea>		
 					<br>
 					<br>
 					<input type = "submit" value = "Submit" id="submit" />

@@ -33,8 +33,17 @@ window.addEventListener("DOMContentLoaded", function () {
 		var radios = document.forms[0].type;
 		for (var i=0; i<radios.length; i++){
 			if(radios[i].checked){
-				typeValue = radios[i].value;
-				
+				typeValue = radios[i].id;
+			}
+		}
+	}
+
+	//Find value of selected frequency.
+	function getFrequency(){
+		var thisFrequency = document.forms[0].select;
+		for (var i=0; i<frequencyGroups.length; i++){
+			if(frequencyGroups[i].selected){
+				frequencyValue = frequencyGroups[i].value;
 			}
 		}
 	}
@@ -65,14 +74,16 @@ window.addEventListener("DOMContentLoaded", function () {
 		//Object properties contain an array with the form label and input data.
 		//Save data into local storage: Use stringify to convert our object to a string.
 		getSelectedRadio();
+		getFrequency();
+		console.log(frequency.value);
 		var item 				={};
-			item.name  			=["Name", $("name").value];
-			item.medname 		=["Medication Name", $("medname").value];
-			item.typename		=["Type", typeValue];
-			// item.dosage 		=["Dosage", $("dosage").value];
-			// item.frequency   	=["Frequency", frequencyValue]; These will be added with JQuery.
-			item.date 	 		=["Date", $("date").value];
-			item.notes	 		=["Notes", $("notes").value];
+			item.name  			=["Name: ", $("name").value];
+			item.medname 		=["Medication Name: ", $("medname").value];
+			item.typename		=["Type: ", typeValue];
+			item.dosage 		=["Dosage: ", $("dosage").value];
+			item.frequency   	=["Frequency: ", frequency.value]; //These will be added with JQuery.
+			item.date 	 		=["Date: ", $("date").value];
+			item.notes	 		=["Notes: ", $("notes").value];
 		localStorage.setItem(id, JSON.stringify(item));
 		alert("Information Saved!");
 	}
@@ -119,10 +130,12 @@ window.addEventListener("DOMContentLoaded", function () {
 		}
 	}
 
-	//Variable defaults
+	//Declare Default Global Variables
 	var frequencyGroups = ["--Choose Frequency--", "4 Hours", "6 Hours", "8 Hours", "12 Hours", "24 Hours"];
 	var typeValue;
+	var frequencyValue;
 	
+	//Run Function to populate frequency select options.
 	makeCats();
 
 	//Set Link & Submit Click Elements
