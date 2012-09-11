@@ -135,7 +135,7 @@ window.addEventListener("DOMContentLoaded", function () {
 	var typeValue;
 	var frequencyValue;
 	
-	//Run Function to populate frequency select options.
+	//Run Function to populate frequency select options.xq
 	makeCats();
 
 	//Set Link & Submit Click Elements

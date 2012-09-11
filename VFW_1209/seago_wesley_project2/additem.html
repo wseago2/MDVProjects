@@ -15,38 +15,46 @@
 	</head>
 	<body>
 		<div id="container">
-			<div id="header">
-				<header>
-					<h1>Add Medication</h1>
-				</header>
-			</div>
-			<div id="article">
-				<form action="#" method="post" id="medForm" />
-					<ul id="questions">
-						<li label for = "name" >Name: </label><br><input type="text" id="name" /></li>
-						<li label for = "medname" >Medication: </label><br><input type="text" id="medname" /></li>
-			<!--			<li><input type = "radio" id = "otc" name = "type" checked="checked" /><label for = "otc">Over the Counter</li></label>-->
-						<li label for = "type" >Type: </label><br>
+			<form action="#" method="post" id="medForm" />
+				<div id="header">
+					<header>
+						<h1>Add Medication</h1>
+					</header>
+				</div>
+				<div id="article">
+					<!--<form action="#" method="post" id="medForm" />-->
+					<small>All Fields are Required!</small>
+						<ul id="questions">
+							<li label for = "name" >Name: </label><br><input type="text" id="name" style="width: 200px" /></li>
+							<li label for = "medname" >Medication: </label><br><input type="text" id="medname" style="width: 200px" /></li>
+							<li label for = "type" >Type: </label><br>
 							<input type = "radio" id="Over the Counter" name = "type" checked="checked">Over the Counter</li>
 							<input type = "radio" id="Prescription" name = "type">Prescription</li>
 							<br>
-							
-			<!--<li><input type = "radio" id = "scrip" name = "type" /><label for = "scrip">Prescription</li></label><br>-->
-						<li label for = "dosage" >Dosage Amount (ml): </label><br><input id="dosage" type="range" min="100" max="500" step="50" />
-						<li id="select"><label for="frequency">Frequency:</label><br /></li>	
-						<li label for = "date" >Date: </label><br><input type = "datetime" id="date"/><br>
-						<li label for = "notes" >Notes: </label><br><textarea id = "notes"></textarea>		
-					<br>
-					<br>
-					<input type = "submit" value = "Submit" id="submit" />
-					<input type = "hidden" value = "true" />
+							<li label for = "dosage" >Dosage Amount (ml): </label><br><input id="dosage" type="range" min="100" max="500" step="50" style="width: 200px" />
+							<li id="select" ><label for="frequency">Frequency:</label><br /></li>	
+								<li label for = "date" >Date: </label><br><input type = "datetime" id="date" style="width: 200px"/><br>
+								<li label for = "notes" >Notes: </label><br><textarea id = "notes" style="width: 200px" ></textarea>		
+							<br>
+							<br>
+						<input type = "submit" value = "Submit" id="submit" style="height: 44px; width: 200px"/>
+						<input type = "hidden" value = "true" />
 				</form>
 			</div>
-			<br>
 			<div id="footer">
-				<a href="#" id="clear">Clear Stored Data</a>
-				<a href="#" id="displayLink">Display Data</a>
-				<a href="additem.html" id="addNew" style="display:none;">Add Medication</a>
+				<br>
+				<br>
+				<a href="additem.html" id="addNew" class="button white" style="display:none; height: 24px; width: 160px">Add Medication</a>
+				<br>
+				<a href="#" id="displayLink" class="button green" align="center" style="height: 24px; width: 160px">Display Data</a>
+				<br>
+				<br>
+				<a href="#" id="clear" class="button red" style="height: 24px; width: 160px">Clear Stored Data</a>
+				<br>
+				<br>
+				<!--<a href="additem.html" id="addNew" class="button white" style="display:none; height: 30px; width: 180px">Add Medication</a>-->
+				<br>
+				<small>Copyright &copy 2012 Wesley Seago</small>
 			</div>
 		</div>
 		<script src="js/main.js" type="text/javascript"></script>
