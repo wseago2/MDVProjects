@@ -91,6 +91,10 @@ Medicine Tracker
 	text-align: center;
 }
 
+#errors {
+	color: red;
+}
+
 #footer {
 	background-color: #7FB2F0;
 	padding-top: 10px;
