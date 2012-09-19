@@ -15,12 +15,12 @@ var json = {
 	},
 	"medication2": {
 		"name": ["Name:", "Erin"],
-		"medname": ["Medication Name:", "Tylenol"],
-		"typename": ["Type:", "Over the Counter"],
+		"medname": ["Medication Name:", "Imatrex"],
+		"typename": ["Type:", "Prescription"],
 		"dosage": ["Dosage:", "5"],
-		"frequency": ["Frequency:", "4 Hours"],
+		"frequency": ["Frequency:", "12 Hours"],
 		"date": ["Date:", "2012-9-18"],
-		"notes": ["Notes:", "Fever"]
+		"notes": ["Notes:", "Migraine"]
 	},"medication3": {
 		"name": ["Name:", "Wes"],
 		"medname": ["Medication Name:", "Tylenol"],

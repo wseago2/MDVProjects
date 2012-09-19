@@ -33,7 +33,7 @@ window.addEventListener("DOMContentLoaded", function () {
 		var radios = document.forms[0].type;
 		for (var i=0; i<radios.length; i++){
 			if(radios[i].checked){
-				typeValue = radios[i].id;
+				typeValue = radios[i].value;
 			}
 		}
 	}
@@ -118,6 +118,7 @@ window.addEventListener("DOMContentLoaded", function () {
 			var obj = JSON.parse(value);
 			var makeSubList = document.createElement("ul");
 			makeli.appendChild(makeSubList);
+			getImage(obj.typename[1], makeSubList);
 			for(var n in obj){
 				var makeSubLi = document.createElement("li");
 				makeSubList.appendChild(makeSubLi);
@@ -128,6 +129,15 @@ window.addEventListener("DOMContentLoaded", function () {
 			makeItemLinks(localStorage.key(i), linksLi); //Create edit and delete links for each item in local storage.
 			}
 		}
+	}
+
+	//Get image for the correct category.
+	function getImage(catName, makeSubList){
+		var imageLi = document.createElement("li");
+		makeSubList.appendChild(imageLi);
+		var newImg = document.createElement("img");
+		var setSrc = newImg.setAttribute("src", "img/"+ catName + ".png");
+		imageLi.appendChild(newImg);
 	}
 
 //Auto Populate Local Storage
@@ -179,9 +189,9 @@ function autoFillData(){
 		$("medname").value = item.medname[1];
 		var radios = document.forms[0].type;
 		for (var i=0; i<radios.length; i++){
-			if (radios[i].value == "Over the Counter" && item.type[1] == "Over the Counter"){
+			if (radios[i].value == "Over the Counter" && item.typename[1] == "Over the Counter"){
 				radios[i].setAttribute("checked", "checked");
-			}else if(radios[i].value == "Prescription" && item.text[i] == "Prescription"){
+			}else if(radios[i].value == "Prescription" && item.typename[1] == "Prescription"){
 				radios[i].setAttribute("checked", "checked");
 			}
 		}

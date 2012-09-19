@@ -14,7 +14,6 @@
 		<link href="css/styles.css" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
-		<div id="container">
 			<form action="#" method="post" id="medForm">
 				<div id="header">
 					<header>
@@ -30,8 +29,8 @@
 							<li label for = "medname" >*Medication: </label><br><input type="text" id="medname" style="width: 95%" /></li>
 							<br>
 							<li label for = "type" >Type: </label><br>
-								<input type = "radio" id="Over the Counter" name = "type" checked="checked">Over the Counter</li>
-								<input type = "radio" id="Prescription" name = "type">Prescription</li>
+								<input type = "radio" id="otc" name = "type" value = "Over the Counter" checked="checked">Over the Counter</li>
+								<input type = "radio" id="Prescription" name = "type" Value = "Prescription">Prescription</li>
 							<br>
 							<br>
 							<li label for = "dosage" >Dosage Amount (ml): </label><br><input id="dosage" type="range" min=".5" max="5" step=".5" style="width: 95%" />
