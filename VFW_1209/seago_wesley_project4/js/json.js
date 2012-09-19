@@ -7,7 +7,7 @@ var json = {
 	"medication1": {
 		"name": ["Name:", "Chloe"],
 		"medname": ["Medication Name:", "Tylenol"],
-		"typename": ["Type:", "Over the Counter"],
+		"typename": ["Type:", "OTC"],
 		"dosage": ["Dosage:", "1"],
 		"frequency": ["Frequency:", "4 Hours"],
 		"date": ["Date:", "2012-9-18"],
@@ -24,7 +24,7 @@ var json = {
 	},"medication3": {
 		"name": ["Name:", "Wes"],
 		"medname": ["Medication Name:", "Tylenol"],
-		"typename": ["Type:", "Over the Counter"],
+		"typename": ["Type:", "OTC"],
 		"dosage": ["Dosage:", "5"],
 		"frequency": ["Frequency:", "4 Hours"],
 		"date": ["Date:", "2012-9-18"],
