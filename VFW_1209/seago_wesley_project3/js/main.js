@@ -1,6 +1,6 @@
 // Wesley Seago
 // VFW Term 1209
-// Project 3 
+// Project 4 
 // Medicine Tracker
 
 // Wait until the DOM is ready
