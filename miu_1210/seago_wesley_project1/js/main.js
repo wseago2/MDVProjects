@@ -1,6 +1,6 @@
 // Wesley Seago
-// VFW Term 1209
-// Project 4 
+// MIU Term 1210
+// Project 1
 // Medicine Tracker
 
 // Wait until the DOM is ready
