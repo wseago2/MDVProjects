@@ -11,6 +11,7 @@ Medicine Tracker
 	overflow: scroll;
 	border: 2px solid black;
 	border-radius: 6px;
+	text-decoration: none;
 }
 
 #container2 {
@@ -18,6 +19,7 @@ Medicine Tracker
 	overflow: scroll;
 	border: 2px solid black;
 	border-radius: 6px;
+	text-decoration: none;
 }
 
 #container ul{
@@ -35,10 +37,14 @@ Medicine Tracker
 
 #intro {
 	background-color: #ADD5F7;
+	background-image: url(../img/medical.png);
+	background-repeat: no-repeat;
+	background-position: center center;
     height:100%;
 	padding-top: 10px;
 	border: 1px solid black;
 	text-align: center;
+	color: #000000;
 }
 
 #article {
@@ -84,6 +90,7 @@ Medicine Tracker
 	border: 1px solid black;
 	padding-left: 5px;
 	display: block;
+	text-decoration: none;
 }
 
 #browsemed {
