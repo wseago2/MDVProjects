@@ -1,0 +1,184 @@
+/*
+Wesley Seago
+MIU Term 1210
+Project 1
+Medicine Tracker 
+*/
+
+#container {
+	background-color: #7FB2F0;
+	font-family: Arial, Helvetica, sans-serif; 
+	overflow: scroll;
+	border: 2px solid black;
+	border-radius: 6px;
+	text-decoration: none;
+}
+
+#container2 {
+	font-family: Arial, Helvetica, sans-serif;
+	overflow: scroll;
+	border: 2px solid black;
+	border-radius: 6px;
+	text-decoration: none;
+}
+
+#container ul{
+	padding: 0;
+	margin-left: 0;
+}
+
+#header {
+	background-color: #7FB2F0;
+	border: 1px solid black;
+	text-align: center;
+	color: #000000;
+	text-shadow: 1px 1px 1px #ffffff;
+}
+
+#intro {
+	background-color: #ADD5F7;
+	background-image: url(../img/medical.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+    height:100%;
+	padding-top: 10px;
+	border: 1px solid black;
+	text-align: center;
+	color: #000000;
+}
+
+#article {
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	background-color: #ADD5F7;
+	border: 1px solid black;
+}
+
+#article2 {
+	background-color: #ADD5F7;
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	text-align: center;
+}
+
+#errors {
+	color: red;
+}
+
+#searchbox {
+	background-color: #ADD5F7;
+	text-align: center;
+	border: 1px solid black;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+#browsebox {
+	background-color: #ADD5F7;
+	border: 1px solid black;
+	padding-left: 5px;
+	display: block;
+	color: #000000;
+	text-shadow: 1px 1px 1px #ffffff;
+}
+
+#browsename {
+	background-color: #ADD5F7;
+	border: 1px solid black;
+	padding-left: 5px;
+	display: block;
+	text-decoration: none;
+}
+
+#browsemed {
+	background-color: #ADD5F7;
+	border: 1px solid black;
+	padding-left: 5px;
+	display: block;
+}
+
+#browsetype {
+	background-color: #ADD5F7;
+	border: 1px solid black;
+	padding-left: 5px;
+	display: block;
+}
+
+#browseresearch {
+	background-color: #ADD5F7;
+	border: 1px solid black;
+	padding-left: 5px;
+	display: block;
+}
+
+#browsedate {
+	background-color: #ADD5F7;
+	border: 1px solid black;
+	padding-left: 5px;
+	display: block;
+}
+
+#footer {
+	background-color: #7FB2F0;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;
+	color: #000000;
+	border: 1px solid black;
+}
+
+.button {
+	margin: 0px 5px;
+	padding: 5px 24px;
+	background-color: #9CB3C3;
+	border: 2px solid black;
+	border-radius: 6px;
+	text-decoration: none;
+	text-shadow: 1px 1px 1px #ffffff;
+	font: bold 0.8em Arial, Helvetica, sans-serif;
+	color: black;
+	font-size: 14pt;
+}
+
+.buttonRed {
+	margin: 0px 5px;
+	padding: 5px 14px 5px 16px;
+	background-color: #D82423;
+	border: 2px solid black;
+	border-radius: 6px;
+	color: black;
+	text-decoration: none;
+	text-shadow: 1px 1px 1px #ffffff;
+	font: bold 0.8em Arial, Helvetica, sans-serif;
+	font-size: 14pt;
+}
+
+.buttonGreen {
+	margin: 0px 5px;
+	padding: 5px 37px;
+	background-color: #09A603;
+	border: 2px solid black;
+	border-radius: 6px;
+	color: black;
+	text-decoration: none;
+	text-shadow: 1px 1px 1px #ffffff;
+	font: bold 0.8em Arial, Helvetica, sans-serif;
+	font-size: 14pt;
+}
+
+ul {
+	list-style-type: none;
+	text-align: left;
+	padding-left: 0px;
+}
+
+li {
+	padding-left: 0px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+
