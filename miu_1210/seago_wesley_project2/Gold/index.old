@@ -1,0 +1,67 @@
+<!doctype html>
+<!-- Wesley Seago  -->
+<!-- MIU Term 1210 -->
+<!-- Project 1     -->
+<!-- Medicine Tracker -->
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="description" content="Medicine Tracker" />
+		<meta name="keywords" content="html5, mobile development, Full Sail University" />
+		<meta name="robots" content="index, follow" />
+		<meta name="viewport" content="user-scalable=no, width=device-width" />
+		<title>Medicine Tracker</title>
+		<link href="css/styles.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<div id="container">
+			<header>
+				<div id="header">
+					<h1>Medicine Tracker</h1>
+				</div>
+			</header>
+			<article>
+				<div id="intro">
+					<h1>Keep Track of Your Medication Schedule!</h1>
+					<br>
+						<a href="additem.html" class="button">Add Medication</a>
+					<br>
+					<br>
+					<br>
+				</div>
+				<div id="searchbox">
+					<form id="search" method="get">
+						<input type="search" id="s" name="s" size="32"> 
+						<input type="submit" value="Search">
+					</form>
+				</div>	
+				<div id="browsebox">
+					<h1>Browse</h1>		
+				</div>	
+				<div id="browsename">
+					<a href="#"><h2>Name</h2></a>
+				</div>
+				<div id="browsemed">
+					<a href="#"><h2>Medication Name</h2></a>
+				</div>
+				<div id="browsetype">
+					<a href="#"><h2>Medication Type</h2></a>
+				</div>
+				<div id="browseresearch">
+					<a href="#"><h2>Research</h2></a>
+				</div>
+				<div id="browsedate">
+					<a href="#"><h2>Date</h2></a>
+				</div>
+			</article>
+			<footer>
+				<div id="footer">
+					<br>
+					<small>Copyright &copy 2012 Wesley Seago</small>
+					<br>	
+				</div>
+			</footer>
+		</div>
+		<script src="js/main.js" type="text/javascript"></script>
+	</body>
+</html>
