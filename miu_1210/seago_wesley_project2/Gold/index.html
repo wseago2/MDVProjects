@@ -1,67 +1,274 @@
-<!doctype html>
-<!-- Wesley Seago  -->
-<!-- MIU Term 1210 -->
-<!-- Project 1     -->
-<!-- Medicine Tracker -->
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="description" content="Medicine Tracker" />
-		<meta name="keywords" content="html5, mobile development, Full Sail University" />
-		<meta name="robots" content="index, follow" />
-		<meta name="viewport" content="user-scalable=no, width=device-width" />
-		<title>Medicine Tracker</title>
-		<link href="css/styles.css" rel="stylesheet" type="text/css" />
-	</head>
-	<body>
-		<div id="container">
-			<header>
-				<div id="header">
-					<h1>Medicine Tracker</h1>
-				</div>
-			</header>
-			<article>
-				<div id="intro">
-					<h1>Keep Track of Your Medication Schedule!</h1>
-					<br>
-						<a href="additem.html" class="button">Add Medication</a>
-					<br>
-					<br>
-					<br>
-				</div>
-				<div id="searchbox">
-					<form id="search" method="get">
-						<input type="search" id="s" name="s" size="32"> 
-						<input type="submit" value="Search">
-					</form>
-				</div>	
-				<div id="browsebox">
-					<h1>Browse</h1>		
-				</div>	
-				<div id="browsename">
-					<a href="#"><h2>Name</h2></a>
-				</div>
-				<div id="browsemed">
-					<a href="#"><h2>Medication Name</h2></a>
-				</div>
-				<div id="browsetype">
-					<a href="#"><h2>Medication Type</h2></a>
-				</div>
-				<div id="browseresearch">
-					<a href="#"><h2>Research</h2></a>
-				</div>
-				<div id="browsedate">
-					<a href="#"><h2>Date</h2></a>
-				</div>
-			</article>
-			<footer>
-				<div id="footer">
-					<br>
-					<small>Copyright &copy 2012 Wesley Seago</small>
-					<br>	
-				</div>
-			</footer>
+<!-- Wesley Seago-->
+<!--MIU Term 1210-->
+<!--Project Week 2-->
+<!--Gold App-->
+
+<!doctype html>  
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Medication Tracker</title>
+	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Mobile IE needs ClearType for smoothing fonts -->
+	<meta http-equiv="cleartype" content="on">
+	<!-- StyleSheets under here -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+	<link rel="stylesheet" href="css/style.css"/>
+	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+	<script src="js/libs/modernizr.custom.min.js"></script>
+</head>
+<body>
+<!--Begin Home Page-->
+	<div data-role="page" id="home" data-theme="b" data-content-theme="b">
+		<div data-role="header" data-position="fixed">
+			<h1>Med Tracker</h1>
 		</div>
-		<script src="js/main.js" type="text/javascript"></script>
-	</body>
+			<ul></ul>
+		<div data-role="content" data-inset="true" style="background:url(img/medical.png) no-repeat; background-position:center">
+			<ul>
+			</ul>
+			<div>
+			<a href="additem.html" data-role="button" data-icon="arrow-r" data-iconpos="right" data-ajax="false">Add Medication</a></p>
+			<ul>
+			</ul>
+			</div>
+			<!--Link to addItem page here-->
+			<!--This link to #addevent is for week 3-->
+			<!--<p><a href="#addEvent" data-role="button" data-icon="arrow-r" data-iconpos="right">Add Medication</a></p>-->	
+		</div>
+		<ul></ul>
+		<div data-role="browse">
+			<ul data-role="listview">
+				<li data-theme="b"><h1>Browse</h1></li>
+			</ul>
+					<div data-role="collapsible-set" data-iconpos="right">
+						<div data-role="collapsible">
+							<h3>Name</h3>
+								<ul data-role="listview" data-filter="true">
+									<li>
+										<img src="img/lgirl.png" />
+										<h4>Chloe</h4>
+									</li>
+									<li>
+										<img src="img/office_girl.png" />
+										<h4>Reagan</h4>
+									</li>
+									<li>
+										<img src="img/female.png" />
+										<h4>Meagan</h4>
+									</li>
+									<li>
+										<img src="img/girl.png" />
+										<h4>Erin</h4>
+									</li>
+									<li>
+										<img src="img/man_grey.png" />
+										<h4>Wes</h4>
+									</li>
+								</ul>
+					</div>
+					<div data-role="collapsible">
+						<h3>Medication Name</h3>
+							<ul data-role="listview" data-filter="true">
+								<li><h4>Tylenol</h4></li>
+								<li><h4>Tylenol Sinus</h4></li>
+								<li><h4>Imitrex</h4></li>
+								<li><h4>Dimetapp</h4></li>
+								<li><h4>Amoxicillin</h4></li>
+								<li><h4>Robitussin</h4></li>
+								<li><h4>Dayquil</h4></li>
+								<li><h4>Nyquil</h4></li>
+								<li><h4>Pepto Bismol</h4></li>
+								<li><h4>Tums</h4></li>
+								<li><h4>Augmentin</h4></li>
+								<li><h4>Tobramycin</h4></li>
+							</ul>
+					</div>
+					<div data-role="collapsible">
+						<h3>Medication Type</h3>
+						<ul data-role="listview">
+							<li><h4>Over the Counter</h4></li>
+							<li><h4>Prescription</h4></li>
+						</ul>
+					</div>
+					<div data-role="collapsible">
+						<h3>Date</h3>
+						<ul data-role="listview" data-filter="true">
+							<li><h4>2012-10-02</h4></li>
+								<li><h4>2012-10-02</h4></li>
+								<li><h4>2012-10-01</h4></li>
+								<li><h4>2012-09-29</h4></li>
+								<li><h4>2012-09-27</h4></li>
+								<li><h4>2012-09-24</h4></li>
+								<li><h4>2012-09-19</h4></li>
+								<li><h4>2012-09-16</h4></li>
+								<li><h4>2012-09-15</h4></li>
+								<li><h4>2012-09-12</h4></li>
+								<li><h4>2012-09-07</h4></li>
+						</ul>
+					</div>
+					<div data-role="collapsible">
+						<h3>Research</h3>
+						<ul data-role="listview" data-filter="true">
+							<li><h4>Tylenol</h4></li>
+								<li><h4>Tylenol Sinus</h4></li>
+								<li><h4>Imitrex</h4></li>
+								<li><h4>Dimetapp</h4></li>
+								<li><h4>Amoxicillin</h4></li>
+								<li><h4>Robitussin</h4></li>
+								<li><h4>Dayquil</h4></li>
+								<li><h4>Nyquil</h4></li>
+								<li><h4>Pepto Bismol</h4></li>
+								<li><h4>Tums</h4></li>
+								<li><h4>Augmentin</h4></li>
+								<li><h4>Tobramycin</h4></li>
+						</ul>
+					</div>
+				</div>
+		</div>
+		<div data-role="footer" data-position="fixed" data-id="home">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-icon="home" class="ui-btn-active ui-state-persist" data-iconpos="top">Home</a></li>
+					<li><a href="additem.html" data-icon="plus" data-iconpos="top" data-ajax="false">Add Event</a></li>
+					<li><a href="http://wseago2.github.com/MDVProjects/miu_1210/seago_wesley_project1/index.html" data-icon="gear" data-iconpos="top">GH-Pages</a></li>
+					<li><a href="..//Bronze/index.html" data-icon="forward" data-iconpos="top">Bronze App</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+<!--End Home Page-->
+
+<!--Begin addEvent Page-->
+<!--This page will be the form for week 3-->
+	<div data-role="page" id="addEvent" data-theme="b" data-content-theme="b">
+
+		
+
+			<div data-role="header" data-position="fixed">
+				<h1>Add Medication</h1>
+			</div>
+
+			<ul>
+			</ul>
+
+			<ul id="errors"></ul>
+
+			<ul style="padding:0px 20px 0px 20px">
+				<label for="name">*Name:</label>
+				<input type="text" name="name" id="basic" value=""/>
+				</ul>
+
+			<ul></ul>
+
+			<ul style="padding:0px 20px 0px 20px">
+				<label for="medname">*Medication:</label>
+				<input type="text" name="medname" id="basic" value=""/>
+			</ul>
+			<ul></ul>
+
+			<ul style="padding:0px 20px 0px 20px">
+				<fieldset data-role="type">
+
+					<legend>Choose Medication Type:</legend>
+
+							<input type="radio" name="type" id="OverTheCounter" value="OTC" checked="checked"/>
+							<label for="OverTheCounter">Over the Counter</label>
+
+							<input type="radio" name="type" id="Prescription" value="Prescription"/>
+							<label for="Prescription">Prescription</label>
+
+				</fieldset>
+			</ul>
+			<ul></ul>
+
+			<ul style="padding:0px 20px 0px 20px">
+				<label for="dosage">*Dosage: (ml)</label>
+				<input type="range" name="dosage" id="dosage" value="0" min="0" max="5" step=".5" />
+			</ul>
+			<ul>
+			</ul>
+
+			<ul style="padding:0px 20px 0px 20px">
+				<label for="select" class="select">*Frequency:</label>
+				<select name="select" id="select">
+					<!--Add cats here until function makecats-->
+					<<option value="0">Select Frequency</option>
+					<option value="4">Every 4 Hours</option>
+					<option value="6">Every 6 Hours</option>
+					<option value="8">Every 8 Hours</option>
+					<option value="12">Every 12 Hours</option>
+					<option value="24">Every 24 Hours</option>
+				</select>
+			</ul>
+
+			<ul>
+			</ul>
+
+			<ul style="padding:0px 20px 0px 20px">
+				<label for="date">*Date:</label>
+				<input type="datetime-local" id="date" name="date">
+			</ul>
+			<ul>
+			</ul>
+
+			<ul style="padding:0px 20px 0px 20px">
+				<label for="notes">Notes:</label>
+				<textarea name="notes" id="notes">
+				</textarea>
+			</ul>
+
+			<ul>
+			</ul>
+
+			<ul style="padding:0px 20px 0px 20px">
+				<input type="submit" id="submit" value="Submit" data-icon="forward" data-iconpos="right"/>
+			</ul>
+
+			<ul>
+			</ul>
+
+			<ul style="padding:0px 20px 0px 20px">
+				<input type="button" id="displayLink" value="Display Data" data-icon="grid" data-iconpos="right"/>
+			</ul>
+
+			<ul>
+			</ul>
+
+			<ul style="padding:0px 20px 0px 20px">
+				<input type="reset" id="clear" value="Clear Data" data-theme="e" data-icon="delete" data-iconpos="right"/>
+			</ul>
+
+			<input type = "hidden" value = "true" />
+			
+			<ul>
+			</ul>
+
+
+
+		<div data-role="footer" data-position="fixed" data-id="home">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
+					<li><a href="#addEvent" data-icon="plus" class="ui-btn-active ui-state-persist" data-iconpos="top">Add Event</a></li>
+					<li><a href="http://wseago2.github.com/MDVProjects/miu_1210/seago_wesley_project1/index.html" data-icon="gear" data-iconpos="top">GH-Pages</a></li>
+					<li><a href="#home" data-icon="forward" data-iconpos="top">Bronze App</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+<!--End addEvent Page-->
+	
+
+	<!-- JavaScript under here -->
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+	<script src="js/json.js" type="text/javascript"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+
+</body>
 </html>
