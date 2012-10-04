@@ -1,6 +1,6 @@
 // Wesley Seago
 // MIU Term 1210
-// Project 1 
+// Project 2
 // Medicine Tracker
 
 var json = {

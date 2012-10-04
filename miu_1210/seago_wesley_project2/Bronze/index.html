@@ -1,201 +1,190 @@
 <!-- Wesley Seago-->
 <!--MIU Term 1210-->
 <!--Project Week 2-->
-<!--Gold App-->
+<!--Bronze App-->
 
 <!doctype html>  
 <html lang="en">
 <head>
-
 	<meta charset="utf-8">
-	
 	<title>Medication Tracker</title>
-	
 	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
 	<meta name="HandheldFriendly" content="True">
 	<meta name="MobileOptimized" content="320"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
 	<!-- Mobile IE needs ClearType for smoothing fonts -->
 	<meta http-equiv="cleartype" content="on">
-	
 	<!-- StyleSheets under here -->
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
 	<link rel="stylesheet" href="css/style.css"/>
-	
 	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
 	<script src="js/libs/modernizr.custom.min.js"></script>
-
 </head>
 <body>
-
 <!--Begin Home Page-->
-
-	<div data-role="page" id="home" data-theme="b" data-content-theme="b">
-
+	<div data-role="page" id="home" data-theme="c" data-content-theme="b">
 		<div data-role="header" data-position="fixed">
 			<h1>Med Tracker</h1>
 		</div>
-
-		<div data-role="content" style="background:url(images/medical.png) no-repeat; background-position:center">
+			<div data-role="content" id="bimage" data-inset="true" style="background:url(img/medical.png) no-repeat; background-position:center">
+			</div>
 			<!--Link to addItem page here-->
-			<p><a href="#addEvent" data-role="button" data-icon="arrow-r" data-iconpos="right">Add Medication</a></p>
-		</div>
-
-		<div data-role="search">
-			<ul data-role="listview">
-				<li data-theme="b"><h1>Search</h1></li>
-			</ul>
-			<ul style="padding:0px 20px 0px 20px">
-				<label for="search-mini" class="ui-hidden-accessible">Search Input:</label>
-				<input type="search" name="search-mini" id="search-mini" value="" data-mini="true"/>
-			</ul>
-		</div>
+			<!--This link to #addevent is for week 3-->
+			<!--<p><a href="#addEvent" data-role="button" data-icon="arrow-r" data-iconpos="right">Add Medication</a></p>-->	
+			<div>
+				<a href="additem.html" data-role="button" data-icon="arrow-r" data-iconpos="right" data-ajax="false" data-theme="b">Add Medication</a>
+				<div>
+					<ul></ul>
+					<ul></ul>
+				</div>
+			</div>
 		<div data-role="browse">
 			<ul data-role="listview">
 				<li data-theme="b"><h1>Browse</h1></li>
-				<li><a href="notFound.html">Name</a></li>
-				<li><a href="notFound.html">Medication</a></li>
-				<li><a href="notFound.html">Medication Type</a></li>
-				<li><a href="notFound.html">Research</a></li>
-				<li><a href="notFound.html">Date</a></li>
 			</ul>
+
+			<div data-role="controlgroup">
+				<a href="#name" data-role="button" data-icon="arrow-r" data-iconpos="right">Name</a>
+				<a href="#medname" data-role="button" data-icon="arrow-r" data-iconpos="right">Medication Name</a>
+				<a href="#medtype" data-role="button" data-icon="arrow-r" data-iconpos="right">Medication Type</a>
+				<a href="#date" data-role="button" data-icon="arrow-r" data-iconpos="right">Date</a>
+				<a href="#research" data-role="button" data-icon="arrow-r" data-iconpos="right">Research</a>
+			</div>
 		</div>
 		<div data-role="footer" data-position="fixed" data-id="home">
 			<div data-role="navbar">
 				<ul>
 					<li><a href="#home" data-icon="home" class="ui-btn-active ui-state-persist" data-iconpos="top">Home</a></li>
-					<li><a href="#addEvent" data-icon="plus" data-iconpos="top">Add Event</a></li>
-					<li><a href="http://wseago2.github.com/MDVProjects/miu_1210/seago_wesley_project1/index.html" data-icon="gear" data-iconpos="top">GH-Pages</a></li>
-					<li><a href="#home" data-icon="forward" data-iconpos="top">Bronze App</a></li>
+					<li><a href="additem.html" data-icon="plus" data-iconpos="top" data-ajax="false">Add Event</a></li>
+					<li><a href="http://wseago2.github.com/MDVProjects/miu_1210/seago_wesley_project2/Bronze/index.html" data-icon="gear" data-iconpos="top">GH-Pages</a></li>
+					<li><a href="..//Gold/index.html" data-icon="forward" data-iconpos="top">Gold App</a></li>
 				</ul>
 			</div>
 		</div>
 	</div>
-
 <!--End Home Page-->
 
-<!--Begin addEvent Page-->
+<!--Begin Name Page-->
+			<div data-role="page" id="name" data-add-back-btn="true">
+				<div data-role="header" data-position="fixed">
+					<h1>Med Tracker</h1>
+				</div>
+				<div data-role="fieldcontain"
+					<div class="ui-grid-b" id="thumbnail">
+						<div class="ui-block-a"><a href="#chloe"><img src="img/lgirl.png" /><h4>Chloe</h4></a></div>
+						<div class="ui-block-b"><a href="#reagan"><img src="img/office_girl.png" /><h4>Reagan</h4></a></div>
+						<div class="ui-block-c"><a href="#meagan"><img src="img/female.png" /><h4>Meagan</h4></a></div>
+						<div class="ui-block-a"><a href="#erin"><img src="img/girl.png" /><h4>Erin</h4></a></div>
+						<div class="ui-block-b"></div>
+						<div class="ui-block-c"><a href="#wes"><img src="img/man_grey.png" /><h4>Wes</h4></a></div>
+					</div>
+				
 
-
-	<div data-role="page" id="addEvent" data-theme="b" data-content-theme="b">
-
-		
-
-			<div data-role="header" data-position="fixed">
-				<h1>Add Medication</h1>
+				<div data-role="footer" data-position="fixed" data-id="home">
+					<div data-role="navbar">
+						<ul>
+							<li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
+							<li><a href="additem.html" data-icon="plus" data-iconpos="top" data-ajax="false">Add Event</a></li>
+							<li><a href="http://wseago2.github.com/MDVProjects/miu_1210/seago_wesley_project2/Bronze/index.html" data-icon="gear" data-iconpos="top">GH-Pages</a></li>
+							<li><a href="..//Gold/index.html" data-icon="forward" data-iconpos="top">Gold App</a></li>
+						</ul>
+					</div>
+				</div>
 			</div>
+<!--End Name Page-->
 
-			<ul>
-			</ul>
-
-			<ul id="errors"></ul>
-
-			<ul style="padding:0px 20px 0px 20px">
-				<label for="name">*Name:</label>
-				<input type="text" name="name" id="basic" value=""/>
-				</ul>
-
-			<ul></ul>
-
-			<ul style="padding:0px 20px 0px 20px">
-				<label for="medname">*Medication:</label>
-				<input type="text" name="medname" id="basic" value=""/>
-			</ul>
-			<ul></ul>
-
-			<ul style="padding:0px 20px 0px 20px">
-				<fieldset data-role="type">
-
-					<legend>Choose Medication Type:</legend>
-
-							<input type="radio" name="type" id="OverTheCounter" value="OTC" checked="checked"/>
-							<label for="OverTheCounter">Over the Counter</label>
-
-							<input type="radio" name="type" id="Prescription" value="Prescription"/>
-							<label for="Prescription">Prescription</label>
-
-				</fieldset>
-			</ul>
-			<ul></ul>
-
-			<ul style="padding:0px 20px 0px 20px">
-				<label for="dosage">*Dosage: (ml)</label>
-				<input type="range" name="dosage" id="dosage" value="0" min="0" max="5" step=".5" />
-			</ul>
-			<ul>
-			</ul>
-
-			<ul style="padding:0px 20px 0px 20px">
-				<label for="select" class="select">*Frequency:</label>
-				<select name="select" id="select">
-					<!--Add cats here until function makecats-->
-					<<option value="0">Select Frequency</option>
-					<option value="4">Every 4 Hours</option>
-					<option value="6">Every 6 Hours</option>
-					<option value="8">Every 8 Hours</option>
-					<option value="12">Every 12 Hours</option>
-					<option value="24">Every 24 Hours</option>
-				</select>
-			</ul>
-
-			<ul>
-			</ul>
-
-			<ul style="padding:0px 20px 0px 20px">
-				<label for="date">*Date:</label>
-				<input type="datetime-local" id="date" name="date">
-			</ul>
-			<ul>
-			</ul>
-
-			<ul style="padding:0px 20px 0px 20px">
-				<label for="notes">Notes:</label>
-				<textarea name="notes" id="notes">
-				</textarea>
-			</ul>
-
-			<ul>
-			</ul>
-
-			<ul style="padding:0px 20px 0px 20px">
-				<input type="submit" id="submit" value="Submit" data-icon="forward" data-iconpos="right"/>
-			</ul>
-
-			<ul>
-			</ul>
-
-			<ul style="padding:0px 20px 0px 20px">
-				<input type="button" id="displayLink" value="Display Data" data-icon="grid" data-iconpos="right"/>
-			</ul>
-
-			<ul>
-			</ul>
-
-			<ul style="padding:0px 20px 0px 20px">
-				<input type="reset" id="clear" value="Clear Data" data-theme="e" data-icon="delete" data-iconpos="right"/>
-			</ul>
-
-			<input type = "hidden" value = "true" />
-			
-			<ul>
-			</ul>
-
-
-
-		<div data-role="footer" data-position="fixed" data-id="home">
+<!--Begin Medname Page-->
+			<div data-role="page" id="medname" data-add-back-btn="true">
+				<div data-role="header" data-position="fixed">
+					<h1>Med Tracker</h1>
+				</div>
+				<div data-role="footer" data-position="fixed" data-id="home">
 			<div data-role="navbar">
 				<ul>
 					<li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
-					<li><a href="#addEvent" data-icon="plus" class="ui-btn-active ui-state-persist" data-iconpos="top">Add Event</a></li>
-					<li><a href="http://wseago2.github.com/MDVProjects/miu_1210/seago_wesley_project1/index.html" data-icon="gear" data-iconpos="top">GH-Pages</a></li>
-					<li><a href="#home" data-icon="forward" data-iconpos="top">Bronze App</a></li>
+					<li><a href="additem.html" data-icon="plus" data-iconpos="top" data-ajax="false">Add Event</a></li>
+					<li><a href="http://wseago2.github.com/MDVProjects/miu_1210/seago_wesley_project2/Bronze/index.html" data-icon="gear" data-iconpos="top">GH-Pages</a></li>
+					<li><a href="..//Gold/index.html" data-icon="forward" data-iconpos="top">Gold App</a></li>
 				</ul>
 			</div>
 		</div>
-	</div>
+			</div>
+<!--End Medname Page-->
 
-<!--End addEvent Page-->
+<!--Begin Medtype Page-->
+			<div data-role="page" id="medtype" data-add-back-btn="true">
+				<div data-role="header" data-position="fixed">
+					<h1>Med Tracker</h1>
+				</div>
+				<div data-role="footer" data-position="fixed" data-id="home">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
+					<li><a href="additem.html" data-icon="plus" data-iconpos="top" data-ajax="false">Add Event</a></li>
+					<li><a href="http://wseago2.github.com/MDVProjects/miu_1210/seago_wesley_project2/Bronze/index.html" data-icon="gear" data-iconpos="top">GH-Pages</a></li>
+					<li><a href="..//Gold/index.html" data-icon="forward" data-iconpos="top">Gold App</a></li>
+				</ul>
+			</div>
+		</div>
+			</div>
+<!--End Medtype Page-->
+
+<!--Begin Date Page-->
+			<div data-role="page" id="date" data-add-back-btn="true">
+				<div data-role="header" data-position="fixed">
+					<h1>Med Tracker</h1>
+				</div>
+				<div data-role="footer" data-position="fixed" data-id="home">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
+					<li><a href="additem.html" data-icon="plus" data-iconpos="top" data-ajax="false">Add Event</a></li>
+					<li><a href="http://wseago2.github.com/MDVProjects/miu_1210/seago_wesley_project2/Bronze/index.html" data-icon="gear" data-iconpos="top">GH-Pages</a></li>
+					<li><a href="..//Gold/index.html" data-icon="forward" data-iconpos="top">Gold App</a></li>
+				</ul>
+			</div>
+		</div>
+			</div>
+<!--End Date Page-->
+
+<!--Begin Research Page-->
+			<div data-role="page" id="research" data-add-back-btn="true">
+				<div data-role="header" data-position="fixed">
+					<h1>Med Tracker</h1>
+				</div>
+				<div data-role="footer" data-position="fixed" data-id="home">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
+					<li><a href="additem.html" data-icon="plus" data-iconpos="top" data-ajax="false">Add Event</a></li>
+					<li><a href="http://wseago2.github.com/MDVProjects/miu_1210/seago_wesley_project2/Bronze/index.html" data-icon="gear" data-iconpos="top">GH-Pages</a></li>
+					<li><a href="..//Gold/index.html" data-icon="forward" data-iconpos="top">Gold App</a></li>
+				</ul>
+			</div>
+		</div>
+			</div>
+<!--End Research Page-->
+
+<!--Begin Chloe Page-->
+			<div data-role="page" id="chloe" data-add-back-btn="true">
+				<div data-role="header" data-position="fixed">
+					<h1>Med Tracker</h1>
+				</div>
+				<h2>Chloe</h2>
+				<h3>Age: 16 Months</h3>
+				<div data-role="footer" data-position="fixed" data-id="home">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
+					<li><a href="additem.html" data-icon="plus" data-iconpos="top" data-ajax="false">Add Event</a></li>
+					<li><a href="http://wseago2.github.com/MDVProjects/miu_1210/seago_wesley_project2/Bronze/index.html" data-icon="gear" data-iconpos="top">GH-Pages</a></li>
+					<li><a href="..//Gold/index.html" data-icon="forward" data-iconpos="top">Gold App</a></li>
+				</ul>
+			</div>
+		</div>
+			</div>
+<!--End Chloe Page-->
+
 	
 
 	<!-- JavaScript under here -->
