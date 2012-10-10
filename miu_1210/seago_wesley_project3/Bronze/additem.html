@@ -25,15 +25,52 @@
 						<small>* fields are required.</small>
 						<ul id="errors"></ul>
 						<ul id="questions">
-							<li label for = "name" >*Name: </label><br><input type="text" id="name" style="width: 95%" /></li>
-							<li label for = "medname" >*Medication: </label><br><input type="text" id="medname" style="width: 95%" /></li>
-							<li label for = "type" >Type: </label><br>
-								<input type = "radio" id="OverTheCounter" name = "type" value = "OTC" checked="checked">Over the Counter</li>
-								<input type = "radio" id="Prescription" name = "type" Value = "Prescription">Prescription</li>
-							<li label for = "dosage" >Dosage Amount (ml): </label><br><input id="dosage" type="range" min=".5" max="5" step=".5" style="width: 95%" />
-							<li id="select"><label for="frequency">*Frequency:</label><br /></li>	
-							<li label for = "date" >*Date: </label><br><input type = "datetime" id="date"/><br>
-							<li label for = "notes" >Notes: </label><br><textarea id = "notes" style="width: 95%" ></textarea>		
+							<fieldset>
+								<legend>Information</legend>
+									<li label for = "name" >*Name: </label><br><input type="text" id="name" style="width: 95%" />
+										<br>
+										<small>-Name of Family Member-</small>
+									</li>
+									<li label for = "medname" >*Medication: </label><br><input type="text" id="medname" style="width: 95%" />
+										<br>
+										<small>-Name of Medication-</small>
+									</li>
+							</fieldset>
+							<br>
+							<fieldset>
+								<legend>Medication Type</legend>
+								<!--<li label for = "type" >Type: </label><br>-->
+									<br>
+									<input type = "radio" id="OverTheCounter" name = "type" value = "OTC" checked="checked">Over the Counter</li>
+									<br>
+									<input type = "radio" id="Prescription" name = "type" Value = "Prescription">Prescription</li>
+									<br>
+									<small>-Select Type of Medication-</small>
+							</fieldset>
+							<br>
+							<fieldset>
+								<legend>Dosage</legend>
+									<li label for = "dosage" >Dosage Amount (ml or each): </label><br><input id="dosage" type="range" min=".5" max="5" step=".5" style="width: 95%" />
+										<br>
+										<small>-Select Dosage (.5 - 5ml or Qty)-</small>
+							</fieldset>
+							<br>
+							<fieldset>
+								<legend>Frequency of Dosage</legend>
+									<li id="select"><label for="frequency">*Frequency:</label><br /></li>	
+							</fieldset>
+							<br>
+							<fieldset>
+								<legend>Last Dose</legend>
+									<li label for = "date" >*Date: </label><br><input type = "datetime" id="date"/>
+										<br>
+										<small>-MM/DD/YYYY-</small>
+							</fieldset>
+							<br>
+							<fieldset>
+								<legend>Additional Information</legend>
+									<li label for = "notes" >Notes: </label><br><textarea id = "notes" style="width: 95%" ></textarea>	
+							</fieldset>	
 						</ul>
 							<div id="article2">
 								<input type = "submit" value = "Submit" id="submit" style="height: 40px; width: 194px"/>

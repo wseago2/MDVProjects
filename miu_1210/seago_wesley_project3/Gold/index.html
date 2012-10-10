@@ -1,7 +1,7 @@
-<!-- Wesley Seago-->
-<!--MIU Term 1210-->
-<!--Project Week 2-->
-<!--Gold App-->
+<!-- Wesley Seago  -->
+<!-- MIU Term 1210 -->
+<!-- Gold Project 3    -->
+<!-- Medicine Tracker -->
 
 <!doctype html>  
 <html lang="en">
@@ -30,14 +30,15 @@
 		<div data-role="content" data-inset="true" style="background:url(img/medical.png) no-repeat; background-position:center">
 			<ul>
 			</ul>
+			<h2>Keep Track of Your Families Medications!</h2>
 			<div>
-			<a href="additem.html" data-role="button" data-icon="arrow-r" data-iconpos="right" data-ajax="false">Add Medication</a></p>
+			<!--<a href="additem.html" data-role="button" data-icon="arrow-r" data-iconpos="right" data-ajax="false">Add Medication</a></p>-->
 			<ul>
 			</ul>
 			</div>
 			<!--Link to addItem page here-->
 			<!--This link to #addevent is for week 3-->
-			<!--<p><a href="#addEvent" data-role="button" data-icon="arrow-r" data-iconpos="right">Add Medication</a></p>-->	
+			<p><a href="#addItem" data-role="button" data-icon="arrow-r" data-iconpos="right">Add Medication</a></p>	
 		</div>
 		<ul></ul>
 		<div data-role="browse">
@@ -137,97 +138,105 @@
 	</div>
 <!--End Home Page-->
 
-<!--Begin addEvent Page-->
+<!--Begin addItem Page-->
 <!--This page will be the form for week 3-->
-	<div data-role="page" id="addEvent" data-theme="b" data-content-theme="b">
+	<div data-role="page" id="addItem" data-theme="b" data-content-theme="b">
 
-		
+		<form action="" method="post" id="addItemForm">
 
 			<div data-role="header" data-position="fixed">
 				<h1>Add Medication</h1>
 			</div>
+			<fieldset data-role="fieldcontain">
+				<small>* fields are required</small>
 
-			<ul>
-			</ul>
+				<!--<ul id="errors"></ul>-->
+			</fieldset>
 
-			<ul id="errors"></ul>
+			<fieldset data-role="fieldcontain">
+				<ul style="padding:0px 20px 0px 20px">
+					<label for="name">*Name:</label>
+					<input type="text" name="name" id="name" class="required" value="" required placeholder="Enter Patient Name"/>
+				</ul>
+			</fieldset>
+					
+			<fieldset data-role="fieldcontain">
+				<ul style="padding:0px 20px 0px 20px">
+					<label for="medname">*Medication:</label>
+					<input type="text" name="medname" id="medname" class="required" value="" required placeholder="Enter Medication Name"/>
+				</ul>
+			</fieldset>
 
-			<ul style="padding:0px 20px 0px 20px">
-				<label for="name">*Name:</label>
-				<input type="text" name="name" id="basic" value=""/>
+			<fieldset data-role="fieldcontain">
+				<ul style="padding:0px 20px 0px 20px">
+					<div data-role="controlgroup">
+						<legend>Choose Medication Type:</legend>
+								<input type="radio" name="type" id="OverTheCounter" value="OTC" checked="checked"/>
+								<label for="OverTheCounter">Over the Counter</label>
+
+								<input type="radio" name="type" id="Prescription" value="Prescription"/>
+								<label for="Prescription">Prescription</label>
+					</div>
+				</ul>
+			</fieldset>
+
+			<fieldset data-role="fieldcontain">
+				<ul style="padding:0px 20px 0px 20px">
+					<label for="dosage">*Dosage: (ml or qty)</label>
+					<input type="range" name="dosage" id="dosage" value="1" min=".5" max="5" step=".5" />
+				</ul>
+			</fieldset>
+
+			<fieldset data-role="fieldcontain">
+				<ul style="padding:0px 20px 0px 20px">
+					<label for="select" class="select">*Frequency:</label>
+					<select name="select" id="select">
+						<!--Add cats here until function makecats-->
+						<option value="0">Select Frequency</option>
+						<option value="4">Every 4 Hours</option>
+						<option value="6">Every 6 Hours</option>
+						<option value="8">Every 8 Hours</option>
+						<option value="12">Every 12 Hours</option>
+						<option value="24">Every 24 Hours</option>
+					</select>
 				</ul>
 
-			<ul></ul>
+				<ul>
+				</ul>
+
+			</fieldset>
+
+			<fieldset data-role="fieldcontain">
+
+				<ul style="padding:0px 20px 0px 20px">
+					<label for="date">*Date:</label>
+					<input type="datetime-local" id="date" class="required" name="date" required placeholder="MM/DD/YYYY">
+				</ul>
+				<ul>
+				</ul>
+
+			</fieldset>
+
+			<fieldset data-role="fieldcontain">
+
+				<ul style="padding:0px 20px 0px 20px">
+					<label for="notes">Notes:</label>
+					<textarea name="notes" id="notes">
+					</textarea>
+				</ul>
+
+			</fieldset>
+
+			<fieldset data-role="fieldcontain">
+				<ul style="padding:0px 20px 0px 20px">
+					<input type="submit" id="submit" value="Submit" data-icon="forward" data-iconpos="right"/>
+				</ul>
+				<ul>
+				</ul>
+			</fieldset>
 
 			<ul style="padding:0px 20px 0px 20px">
-				<label for="medname">*Medication:</label>
-				<input type="text" name="medname" id="basic" value=""/>
-			</ul>
-			<ul></ul>
-
-			<ul style="padding:0px 20px 0px 20px">
-				<fieldset data-role="type">
-
-					<legend>Choose Medication Type:</legend>
-
-							<input type="radio" name="type" id="OverTheCounter" value="OTC" checked="checked"/>
-							<label for="OverTheCounter">Over the Counter</label>
-
-							<input type="radio" name="type" id="Prescription" value="Prescription"/>
-							<label for="Prescription">Prescription</label>
-
-				</fieldset>
-			</ul>
-			<ul></ul>
-
-			<ul style="padding:0px 20px 0px 20px">
-				<label for="dosage">*Dosage: (ml)</label>
-				<input type="range" name="dosage" id="dosage" value="0" min="0" max="5" step=".5" />
-			</ul>
-			<ul>
-			</ul>
-
-			<ul style="padding:0px 20px 0px 20px">
-				<label for="select" class="select">*Frequency:</label>
-				<select name="select" id="select">
-					<!--Add cats here until function makecats-->
-					<<option value="0">Select Frequency</option>
-					<option value="4">Every 4 Hours</option>
-					<option value="6">Every 6 Hours</option>
-					<option value="8">Every 8 Hours</option>
-					<option value="12">Every 12 Hours</option>
-					<option value="24">Every 24 Hours</option>
-				</select>
-			</ul>
-
-			<ul>
-			</ul>
-
-			<ul style="padding:0px 20px 0px 20px">
-				<label for="date">*Date:</label>
-				<input type="datetime-local" id="date" name="date">
-			</ul>
-			<ul>
-			</ul>
-
-			<ul style="padding:0px 20px 0px 20px">
-				<label for="notes">Notes:</label>
-				<textarea name="notes" id="notes">
-				</textarea>
-			</ul>
-
-			<ul>
-			</ul>
-
-			<ul style="padding:0px 20px 0px 20px">
-				<input type="submit" id="submit" value="Submit" data-icon="forward" data-iconpos="right"/>
-			</ul>
-
-			<ul>
-			</ul>
-
-			<ul style="padding:0px 20px 0px 20px">
-				<input type="button" id="displayLink" value="Display Data" data-icon="grid" data-iconpos="right"/>
+				<input type="button" id="displayLink" value="Display Data" data-theme="e" data-icon="grid" data-iconpos="right"/>
 			</ul>
 
 			<ul>
@@ -254,14 +263,16 @@
 				</ul>
 			</div>
 		</div>
-	</div>
+	</form>
+</div>
 
-<!--End addEvent Page-->
+<!--End addItem Page-->
 	
 
 	<!-- JavaScript under here -->
 	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+	<script type="text/javascript" src="js/libs/jquery.validate.min.js"></script>
 	<script src="js/json.js" type="text/javascript"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 

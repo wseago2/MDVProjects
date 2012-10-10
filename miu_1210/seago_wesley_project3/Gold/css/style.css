@@ -1,6 +1,12 @@
 /* 
 Wesley Seago
 MIU Term 1210
-Project 2
+Project 3
 Med Tracker
 */
+
+#home {
+	text-align: center;
+}
+
+label.error{display: block; margin: 10px 0px; color: red;}

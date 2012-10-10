@@ -4,7 +4,10 @@
 // Med Tracker
 */
 
-#bimage {height: 206px;}
+#bimage {
+	height: 206px;
+	text-align: center;
+}
 
 #name .ui-grid-b div{text-align: center;}
 
