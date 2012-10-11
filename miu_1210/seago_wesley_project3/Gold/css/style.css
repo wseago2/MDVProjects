@@ -10,3 +10,7 @@ Med Tracker
 }
 
 label.error{display: block; margin: 10px 0px; color: red;}
+
+#items {
+	background-color: skyblue;
+}

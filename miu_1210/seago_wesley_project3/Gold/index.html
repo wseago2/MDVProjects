@@ -182,7 +182,7 @@
 
 			<fieldset data-role="fieldcontain">
 				<ul style="padding:0px 20px 0px 20px">
-					<label for="dosage">*Dosage: (ml or qty)</label>
+					<label for="dosage">Dosage: (ml or qty)</label>
 					<input type="range" name="dosage" id="dosage" value="1" min=".5" max="5" step=".5" />
 				</ul>
 			</fieldset>
@@ -190,14 +190,14 @@
 			<fieldset data-role="fieldcontain">
 				<ul style="padding:0px 20px 0px 20px">
 					<label for="select" class="select">*Frequency:</label>
-					<select name="select" id="select">
+					<select name="select" id="frequency">
 						<!--Add cats here until function makecats-->
 						<option value="0">Select Frequency</option>
-						<option value="4">Every 4 Hours</option>
-						<option value="6">Every 6 Hours</option>
-						<option value="8">Every 8 Hours</option>
-						<option value="12">Every 12 Hours</option>
-						<option value="24">Every 24 Hours</option>
+						<option value="Every 4 Hours">Every 4 Hours</option>
+						<option value="Every 6 Hours">Every 6 Hours</option>
+						<option value="Every 8 Hours">Every 8 Hours</option>
+						<option value="Every 12 Hours">Every 12 Hours</option>
+						<option value="Every 24 Hours">Every 24 Hours</option>
 					</select>
 				</ul>
 
@@ -210,7 +210,7 @@
 
 				<ul style="padding:0px 20px 0px 20px">
 					<label for="date">*Date:</label>
-					<input type="datetime-local" id="date" class="required" name="date" required placeholder="MM/DD/YYYY">
+					<input type="datetime-local" id="date" name="date" placeholder="MM/DD/YYYY">
 				</ul>
 				<ul>
 				</ul>
@@ -262,11 +262,28 @@
 					<li><a href="..//Bronze/index.html" data-icon="forward" data-iconpos="top">Bronze App</a></li>
 				</ul>
 			</div>
-		</div>
-	</form>
+			</div>
+		</form>
 </div>
 
 <!--End addItem Page-->
+
+<!--Empty Page to Display Data-->
+	<!--<div data-role="page" id="display" data-theme="b" data-content-theme="b">-->
+	<div data-role="page" id="display">
+		
+	</div>
+
+		<div data-role="footer" data-position="fixed" data-id="home">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
+					<li><a href="#addEvent" data-icon="plus" class="ui-btn-active ui-state-persist" data-iconpos="top">Add Event</a></li>
+					<li><a href="http://wseago2.github.com/MDVProjects/miu_1210/seago_wesley_project3/Gold/index.html" data-icon="gear" data-iconpos="top">GH-Pages</a></li>
+					<li><a href="..//Bronze/index.html" data-icon="forward" data-iconpos="top">Bronze App</a></li>
+				</ul>
+			</div>
+			</div>
 	
 
 	<!-- JavaScript under here -->
