@@ -74,6 +74,7 @@ var	getData=function(){
 	};
 
 function makeItemLinks(key, linksLi){
+		
 		var editLink = document.createElement("a");
 		editLink.href = "#";
 		editLink.key = key;
@@ -94,6 +95,7 @@ function makeItemLinks(key, linksLi){
 		deleteLink.addEventListener("click", deleteItem);
 		deleteLink.innerHTML = deleteText;
 		linksLi.appendChild(deleteLink);
+
 	};
 
 function editItem(){
