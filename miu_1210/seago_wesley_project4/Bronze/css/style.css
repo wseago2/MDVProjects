@@ -1,6 +1,6 @@
 /* Wesley Seago
 // MIU Term 1210
-// Project 2
+// Project 4
 // Med Tracker
 */
 
@@ -10,6 +10,11 @@
 }
 
 #name .ui-grid-b div{text-align: center;}
+
+#home {
+	background-color: #519BDA;
+}
+
 
 
 
