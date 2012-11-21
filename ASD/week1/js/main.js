@@ -1,10 +1,17 @@
 // Wesley Seago
-// MIU Term 1210
-// Gold Project 3
+// ASD Term 1212
 // Medicine Tracker
 
 $('#home').on('pageinit', function(){
 //code needed for home page goes here
+});	
+
+$('#display').on('pageinit', function(){
+//code needed for display page goes here
+});	
+
+$('#settings').on('pageinit', function(){
+//code needed for settings page goes here
 });	
 		
 //Call JQM Validator	
@@ -29,6 +36,8 @@ $("#addItem").on('pageinit', function(){
 //The functions below can go inside or outside the pageinit function for the page in which it is needed.
 
 //Get Element by ID Function
+//Leave this function in place and refactor each instance.
+//Remove after all ge instances have been refactored.
 function ge(x){
 	var theElement = document.getElementById(x);
 	return theElement;
