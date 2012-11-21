@@ -1,25 +1,24 @@
 <!-- Wesley Seago  -->
-<!-- MIU Term 1210 -->
-<!-- Gold Project 4    -->
+<!-- ASD Term 1212 -->
 <!-- Medicine Tracker -->
 
 <!doctype html>  
 <html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>Medication Tracker</title>
-	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
-	<meta name="HandheldFriendly" content="True">
-	<meta name="MobileOptimized" content="320"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- Mobile IE needs ClearType for smoothing fonts -->
-	<meta http-equiv="cleartype" content="on">
-	<!-- StyleSheets under here -->
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
-	<link rel="stylesheet" href="css/style.css"/>
-	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
-	<script src="js/libs/modernizr.custom.min.js"></script>
-</head>
+	<head>
+		<meta charset="utf-8">
+		<title>Medication Tracker</title>
+		<!--  Mobile viewport optimized: j.mp/bplateviewport -->
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Mobile IE needs ClearType for smoothing fonts -->
+		<meta http-equiv="cleartype" content="on">
+		<!-- StyleSheets under here -->
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+		<link rel="stylesheet" href="css/style.css"/>
+		<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+		<script src="js/libs/modernizr.custom.min.js"></script>
+	</head>
 <body>
 <!--Begin Home Page-->
 	<div data-role="page" id="home" data-theme="b" data-content-theme="b">
@@ -33,12 +32,9 @@
 			</ul>
 			<h2>Keep Track of Your Families Medications!</h2>
 			<div>
-			<!--<a href="additem.html" data-role="button" data-icon="arrow-r" data-iconpos="right" data-ajax="false">Add Medication</a></p>-->
-			<ul>
-			</ul>
+				<ul>
+				</ul>
 			</div>
-			<!--Link to addItem page here-->
-			<!--This link to #addevent is for week 3-->
 			<p><a href="#addItem" data-role="button" data-icon="arrow-r" data-iconpos="right">Add Medication</a></p>	
 		</div>
 		<ul></ul>
@@ -48,32 +44,27 @@
 			</ul>
 					<div data-role="collapsible-set" data-iconpos="right">
 						<div data-role="collapsible">
-							<h3>Name</h3>
+							<h3>by Name</h3>
 								<ul data-role="listview" data-filter="true">
 									<li>
-										<img src="img/lgirl.png" />
 										<h4>Chloe</h4>
 									</li>
 									<li>
-										<img src="img/office_girl.png" />
 										<h4>Reagan</h4>
 									</li>
 									<li>
-										<img src="img/female.png" />
 										<h4>Meagan</h4>
 									</li>
-									<li>
-										<img src="img/girl.png" />
+									<li>	
 										<h4>Erin</h4>
 									</li>
 									<li>
-										<img src="img/man_grey.png" />
 										<h4>Wes</h4>
 									</li>
 								</ul>
 					</div>
 					<div data-role="collapsible">
-						<h3>Medication Name</h3>
+						<h3>by Medication Name</h3>
 							<ul data-role="listview" data-filter="true">
 								<li><h4>Tylenol</h4></li>
 								<li><h4>Tylenol Sinus</h4></li>
@@ -90,14 +81,7 @@
 							</ul>
 					</div>
 					<div data-role="collapsible">
-						<h3>Medication Type</h3>
-						<ul data-role="listview">
-							<li><h4>Over the Counter</h4></li>
-							<li><h4>Prescription</h4></li>
-						</ul>
-					</div>
-					<div data-role="collapsible">
-						<h3>Date</h3>
+						<h3>by Date</h3>
 						<ul data-role="listview" data-filter="true">
 								<li><h4>2012-10-02</h4><p>Chloe, Tylenol 1ml, 9:00PM, Fever</p></li>
 								<li><h4>2012-10-02</h4><p>Chloe, Tylenol, 1ml, 5:00PM, Fever</p></li>
@@ -107,33 +91,15 @@
 								<li><h4>2012-09-24</h4><p>Chloe, Tylenol, 1ml, 7:30PM, Fever-Teething</p></li>
 						</ul>
 					</div>
-					<div data-role="collapsible">
-						<h3>Research</h3>
-						<ul data-role="listview" data-filter="true">
-							<li><h4>Tylenol</h4></li>
-								<li><h4>Tylenol Sinus</h4></li>
-								<li><h4>Imitrex</h4></li>
-								<li><h4>Dimetapp</h4></li>
-								<li><h4>Amoxicillin</h4></li>
-								<li><h4>Robitussin</h4></li>
-								<li><h4>Dayquil</h4></li>
-								<li><h4>Nyquil</h4></li>
-								<li><h4>Pepto Bismol</h4></li>
-								<li><h4>Tums</h4></li>
-								<li><h4>Augmentin</h4></li>
-								<li><h4>Tobramycin</h4></li>
-						</ul>
-					</div>
 				</div>
 		</div>
-
 		<div data-role="footer" data-position="fixed" data-id="home">
 			<div data-role="navbar">
 				<ul>
 					<li><a href="#home" data-icon="home" class="ui-btn-active ui-state-persist" data-iconpos="top">Home</a></li>
 					<li><a href="#addItem" data-icon="plus" data-iconpos="top" data-ajax="false">Add Event</a></li>
-					<li><a href="http://wseago2.github.com/MDVProjects/miu_1210/seago_wesley_project2/Gold/index.html" data-icon="gear" data-iconpos="top">GH-Pages</a></li>
-					<li><a href="..//Bronze/index.html" data-icon="forward" data-iconpos="top">Bronze App</a></li>
+					<li><a href="#display" data-icon="forward" data-iconpos="top">Events</a></li>
+					<li><a href="#settings" data-icon="gear" data-iconpos="top">Settings</a></li>
 				</ul>
 			</div>
 		</div>
@@ -141,55 +107,47 @@
 <!--End Home Page-->
 
 <!--Begin addItem Page-->
-<!--This page will be the form for week 3-->
+
 	<div data-role="page" id="addItem" data-theme="b" data-content-theme="b">
-
+<!--Remove form action with jquery-->
 		<form action="" method="post" id="addItemForm">
-
 			<div data-role="header" id="mainheader" data-position="fixed">
 				<img src="img/medicalTiny.png" align="left">
 				<h1>Add Event</h1>
 			</div>
 			<fieldset data-role="fieldcontain">
 				<small>* fields are required</small>
-
 				<!--<ul id="errors"></ul>-->
 			</fieldset>
-
 			<fieldset data-role="fieldcontain">
 				<ul style="padding:0px 20px 0px 20px">
 					<label for="name">*Name:</label>
 					<input type="text" name="name" id="name" class="required" value="" required placeholder="Enter Patient Name"/>
 				</ul>
-			</fieldset>
-					
+			</fieldset>	
 			<fieldset data-role="fieldcontain">
 				<ul style="padding:0px 20px 0px 20px">
 					<label for="medname">*Medication:</label>
 					<input type="text" name="medname" id="medname" class="required" value="" required placeholder="Enter Medication Name"/>
 				</ul>
 			</fieldset>
-
 			<fieldset data-role="fieldcontain">
 				<ul style="padding:0px 20px 0px 20px">
 					<div data-role="controlgroup">
 						<legend>Choose Medication Type:</legend>
 								<input type="radio" name="type" id="OverTheCounter" value="OTC" checked="checked"/>
 								<label for="OverTheCounter">Over the Counter</label>
-
 								<input type="radio" name="type" id="Prescription" value="Prescription"/>
 								<label for="Prescription">Prescription</label>
 					</div>
 				</ul>
 			</fieldset>
-
 			<fieldset data-role="fieldcontain">
 				<ul style="padding:0px 20px 0px 20px">
 					<label for="dosage">Dosage: (ml or qty)</label>
 					<input type="range" name="dosage" id="dosage" value="1" min=".5" max="5" step=".5" />
 				</ul>
 			</fieldset>
-
 			<fieldset data-role="fieldcontain">
 				<ul style="padding:0px 20px 0px 20px">
 					<label for="select" class="select">*Frequency:</label>
@@ -203,33 +161,24 @@
 						<option value="Every 24 Hours">Every 24 Hours</option>
 					</select>
 				</ul>
-
 				<ul>
 				</ul>
-
 			</fieldset>
-
 			<fieldset data-role="fieldcontain">
-
 				<ul style="padding:0px 20px 0px 20px">
 					<label for="date">*Date:</label>
 					<input type="datetime-local" id="date" name="date" placeholder="MM/DD/YYYY">
 				</ul>
 				<ul>
 				</ul>
-
 			</fieldset>
-
 			<fieldset data-role="fieldcontain">
-
 				<ul style="padding:0px 20px 0px 20px">
 					<label for="notes">Notes:</label>
 					<textarea name="notes" id="notes">
 					</textarea>
 				</ul>
-
 			</fieldset>
-
 			<fieldset data-role="fieldcontain">
 				<ul style="padding:0px 20px 0px 20px">
 					<input type="submit" id="submit" value="Submit" data-icon="forward" data-iconpos="right"/>
@@ -237,32 +186,24 @@
 				<ul>
 				</ul>
 			</fieldset>
-
 			<ul style="padding:0px 20px 0px 20px">
 				<input type="button" id="displayLink" value="Display Data" data-theme="e" data-icon="grid" data-iconpos="right"/>
 			</ul>
-
 			<ul>
 			</ul>
-
 			<ul style="padding:0px 20px 0px 20px">
 				<input type="reset" id="clear" value="Clear Data" data-theme="e" data-icon="delete" data-iconpos="right"/>
 			</ul>
-
 			<input type = "hidden" value = "true" />
-			
 			<ul>
 			</ul>
-
-
-
 		<div data-role="footer" data-position="fixed" data-id="home">
 			<div data-role="navbar">
 				<ul>
 					<li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
-					<li><a href="#addEvent" data-icon="plus" class="ui-btn-active ui-state-persist" data-iconpos="top">Add Event</a></li>
-					<li><a href="http://wseago2.github.com/MDVProjects/miu_1210/seago_wesley_project3/Gold/index.html" data-icon="gear" data-iconpos="top">GH-Pages</a></li>
-					<li><a href="..//Bronze/index.html" data-icon="forward" data-iconpos="top">Bronze App</a></li>
+					<li><a href="#addItem" data-icon="plus" class="ui-btn-active ui-state-persist" data-iconpos="top">Add Event</a></li>
+					<li><a href="#display" data-icon="forward" data-iconpos="top">Events</a></li>
+					<li><a href="#settings" data-icon="gear" data-iconpos="top">Settings</a></li>
 				</ul>
 			</div>
 			</div>
@@ -271,25 +212,48 @@
 
 <!--End addItem Page-->
 
-<!--Empty Page to Display Data-->
-	<!--<div data-role="page" id="display" data-theme="b" data-content-theme="b">-->
-	<div data-role="page" id="display">
-		
-	</div>
-
+<!--Begin Data Page to Display Data-->
+	<div data-role="page" id="display" data-theme="b" data-content-theme="b">
+		<div data-role="header" id="mainheader" data-position="fixed">
+				<img src="img/medicalTiny.png" align="left">
+				<h1>Events</h1>
+		</div>
 		<div data-role="footer" data-position="fixed" data-id="home">
 			<div data-role="navbar">
 				<ul>
 					<li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
-					<li><a href="#addEvent" data-icon="plus" class="ui-btn-active ui-state-persist" data-iconpos="top">Add Event</a></li>
-					<li><a href="http://wseago2.github.com/MDVProjects/miu_1210/seago_wesley_project3/Gold/index.html" data-icon="gear" data-iconpos="top">GH-Pages</a></li>
-					<li><a href="..//Bronze/index.html" data-icon="forward" data-iconpos="top">Bronze App</a></li>
+					<li><a href="#addItem" data-icon="plus" data-iconpos="top">Add Event</a></li>
+					<li><a href="#display" data-icon="forward" class="ui-btn-active ui-state-persist" data-iconpos="top">Events</a></li>
+					<li><a href="#settings" data-icon="gear" data-iconpos="top">Settings</a></li>
 				</ul>
 			</div>
-			</div>
-	
+		</div>
+	</div>
 
-	<!-- JavaScript under here -->
+<!--End Data Display Page-->
+
+<!--Begin Settings Page-->
+
+	<div data-role="page" id="settings" data-theme="b" data-content-theme="b">
+		<div data-role="header" id="mainheader" data-position="fixed">
+					<img src="img/medicalTiny.png" align="left">
+					<h1>Settings</h1>
+		</div>
+			<div data-role="footer" data-position="fixed" data-id="home">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
+						<li><a href="#addItem" data-icon="plus"  data-iconpos="top">Add Event</a></li>
+						<li><a href="#display" data-icon="forward" data-iconpos="top">Events</a></li>
+						<li><a href="#settings" data-icon="gear" class="ui-btn-active ui-state-persist" data-iconpos="top">Settings</a></li>
+					</ul>
+				</div>
+			</div>
+	</div>
+
+<!--End Settings Page-->
+
+<!-- JavaScript under here -->
 	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
 	<script type="text/javascript" src="js/libs/jquery.validate.min.js"></script>
