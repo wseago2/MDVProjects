@@ -36,6 +36,8 @@ $('#displayItems').on('pageinit', function(){
 //###########################################################################################
 	$('#displayLink').on("click", function(){
 		$('#events').empty();
+//Take this out when I get keys resolved. This will not work if pressing
+//the display nav link after the displayEvents function runs.
 			displayEvents();
 			});
 
@@ -65,6 +67,9 @@ var autoFillData = function(){
 // storeData function
 //###########################################################################################
 var storeData = function(key){
+//Using existing key even when a new key should be assigned.
+//This is a result of the key being wrapped in jQuery and turned into an object.
+//Gotta get this solved to move forward with edit and delete links.
 			if (!key){
 				alert("Creating a key.");
 				var id = Math.floor(Math.random()*100000001);
@@ -82,7 +87,8 @@ var storeData = function(key){
 					item.notes	 		=["Notes: ", $("#notes").val()];
 						localStorage.setItem(id, JSON.stringify(item));
 						alert("Information Saved!");
-						window.location.reload();
+//						window.location.reload();
+						$.mobile.changepage("#home");
 
 
 		};
@@ -100,6 +106,7 @@ var displayEvents = function (){
 		var makeEventList = $('<ul>');
 			//give the ul an id so I can clear it without clearing the entire page.
 			//if I use .empty on the page I will lose navigation.
+			//I would really like to keep the persistent, consistent navigation.
 			makeEventList.attr("id", "events");
 			makeEventList.appendTo('#displayItems');
 				for (var i=0, len=localStorage.length; i<len; i++){
@@ -143,6 +150,8 @@ var displayEvents = function (){
 // makeItemLinks function
 //###########################################################################################		
 
+//Make the buttons right in the displayEvents function. After getting the key fixed,
+//add id attributes to the buttons to run functions from .on click events.
 /*
 function makeItemLinks(key, makeSubLi){
 		var editLink = $("<a>");
@@ -214,7 +223,7 @@ function deleteItem(){
 		if (ask){
 			localStorage.removeItem(this.key);
 			alert("Event Deleted.");
-			$.mobile.changePage("#addItem");
+			$.mobile.changePage("#home");
 		}else{
 			alert("Event was NOT Deleted.");
 		}
