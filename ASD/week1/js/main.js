@@ -111,10 +111,10 @@ var displayEvents = function (){
 					var obj = JSON.parse(value);
 						var makeSubList = $('<ul>');
 						makeSubList.appendTo(makeEventRecord);
-							var editLink = $("<a>");
+							var editLink = $("<button>");
 							var editText = "Edit Event";
-							var deleteLink = $("<a>");
-							var deleteText = "Delete Event";
+							var deleteLink = $("<button>");
+							var deleteText = " Delete Event";
 							editLink.attr("href", "#addItem");
 							deleteLink.attr("href", "#displayItems");
 							editLink.text(editText);
