@@ -1,7 +1,6 @@
 /* 
 Wesley Seago
-MIU Term 1210
-Project 4
+ASD Term 1301
 Med Tracker
 */
 
@@ -11,14 +10,3 @@ Med Tracker
 
 label.error{display: block; margin: 10px 0px; color: red;}
 
-#items {
-	background-color: #ADD5F7;
-}
-
-#mainheader {
-	padding: 3px;
-}
-
-#mainheader h1 {
-	margin-left: 1px;
-}

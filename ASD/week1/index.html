@@ -1,6 +1,6 @@
 <!-- Wesley Seago  -->
-<!-- ASD Term 1212 -->
-<!-- Medicine Tracker -->
+<!-- ASD Term 1301 -->
+<!-- Med Tracker -->
 
 <!doctype html>  
 <html lang="en">
@@ -21,84 +21,19 @@
 	</head>
 <body>
 <!--Begin Home Page-->
-	<div data-role="page" id="home" data-theme="b" data-content-theme="b">
+	<div data-role="page" id="home" style="background:url(img/lightBlue.gif)" data-theme="b" data-content-theme="b">
 		<div data-role="header" id="mainHeader" data-position="fixed">
 			<h1>Med Tracker</h1>
 		</div>
-			<ul></ul>
-		<div data-role="content" data-inset="true" style="background:url(img/medical.png) no-repeat; background-position:center">
-			<ul>
-			</ul>
+			<img src="img/Logo320.png">
 			<h2>Keep Track of Your Families Medications!</h2>
-			<div>
-				<ul>
-				</ul>
-			</div>
-			<p><a href="#addItem" data-role="button" data-icon="arrow-r" data-iconpos="right">Add Medication</a></p>	
-		</div>
-		<ul></ul>
-		<div data-role="browse">
-			<ul data-role="listview">
-				<li data-theme="b"><h1>Browse</h1></li>
-			</ul>
-					<div data-role="collapsible-set" data-iconpos="right">
-						<div data-role="collapsible">
-							<h3>by Name</h3>
-								<ul data-role="listview" data-filter="true">
-									<li>
-										<h4>Chloe</h4>
-									</li>
-									<li>
-										<h4>Reagan</h4>
-									</li>
-									<li>
-										<h4>Meagan</h4>
-									</li>
-									<li>	
-										<h4>Erin</h4>
-									</li>
-									<li>
-										<h4>Wes</h4>
-									</li>
-								</ul>
-					</div>
-					<div data-role="collapsible">
-						<h3>by Medication Name</h3>
-							<ul data-role="listview" data-filter="true">
-								<li><h4>Tylenol</h4></li>
-								<li><h4>Tylenol Sinus</h4></li>
-								<li><h4>Imitrex</h4></li>
-								<li><h4>Dimetapp</h4></li>
-								<li><h4>Amoxicillin</h4></li>
-								<li><h4>Robitussin</h4></li>
-								<li><h4>Dayquil</h4></li>
-								<li><h4>Nyquil</h4></li>
-								<li><h4>Pepto Bismol</h4></li>
-								<li><h4>Tums</h4></li>
-								<li><h4>Augmentin</h4></li>
-								<li><h4>Tobramycin</h4></li>
-							</ul>
-					</div>
-					<div data-role="collapsible">
-						<h3>by Date</h3>
-						<ul data-role="listview" data-filter="true">
-								<li><h4>2012-10-02</h4><p>Chloe, Tylenol 1ml, 9:00PM, Fever</p></li>
-								<li><h4>2012-10-02</h4><p>Chloe, Tylenol, 1ml, 5:00PM, Fever</p></li>
-								<li><h4>2012-10-01</h4><p>Erin, Imitrex, 1, 6:00PM, Migraine</p></li>
-								<li><h4>2012-09-29</h4><p>Meagan, Tylenol Sinus, 1, 7:00AM, Sinus Pressure</p></li>
-								<li><h4>2012-09-27</h4><p>Reagan, Robitussin, 2ml, 7:30PM, Congestion</p></li>
-								<li><h4>2012-09-24</h4><p>Chloe, Tylenol, 1ml, 7:30PM, Fever-Teething</p></li>
-						</ul>
-					</div>
-				</div>
-		</div>
+<!--			<p><a href="#addItem" data-role="button" data-icon="arrow-r" data-iconpos="right">Add Medication</a></p> -->
 		<div data-role="footer" data-position="fixed" data-id="home">
 			<div data-role="navbar">
 				<ul>
 					<li><a href="#home" data-icon="home" class="ui-btn-active ui-state-persist" data-iconpos="top">Home</a></li>
 					<li><a href="#addItem" data-icon="plus" data-iconpos="top" data-ajax="false">Add Event</a></li>
-					<li><a href="#display" data-icon="forward" data-iconpos="top">Events</a></li>
-					<li><a href="#settings" data-icon="gear" data-iconpos="top">Settings</a></li>
+					<li><a href="#displayItems" data-icon="plus" data-iconpos="top">Display</a></li>
 				</ul>
 			</div>
 		</div>
@@ -107,9 +42,10 @@
 
 <!--Begin addItem Page-->
 
-	<div data-role="page" id="addItem" data-theme="b" data-content-theme="b">
+	<div data-role="page" id="addItem" style="background:url(img/lightBlue.gif)" data-theme="b" data-content-theme="b">
 <!--Remove form action with jquery-->
-		<form action="" method="post" id="addItemForm">
+<!--		<form action="" method="post" id="addItemForm"> -->
+		<form id="addItemForm">
 			<div data-role="header" id="addItemHeader" data-position="fixed">
 				<h1>Add Event</h1>
 			</div>
@@ -133,23 +69,25 @@
 				<ul style="padding:0px 20px 0px 20px">
 					<div data-role="controlgroup">
 						<legend>Choose Medication Type:</legend>
-								<input type="radio" name="type" id="OverTheCounter" value="OTC" checked="checked"/>
-								<label for="OverTheCounter">Over the Counter</label>
-								<input type="radio" name="type" id="Prescription" value="Prescription"/>
-								<label for="Prescription">Prescription</label>
+								<input type="radio" name="type" id="otc" value="Over The Counter" checked="checked"/>
+								<label for="otc">Over the Counter</label>
+								<input type="radio" name="type" id="pre" value="Prescription"/>
+								<label for="pre">Prescription</label>
+								<input type="radio" name="type" id="vit" value="Vitamin"/>
+								<label for="vit">Vitamin</label>
 					</div>
 				</ul>
 			</fieldset>
 			<fieldset data-role="fieldcontain">
 				<ul style="padding:0px 20px 0px 20px">
 					<label for="dosage">Dosage: (ml or qty)</label>
-					<input type="range" name="dosage" id="dosage" value="1" min=".5" max="5" step=".5" />
+					<input type="range" name="dosage" id="dosage" value="1" min="1" max="50" step="1" />
 				</ul>
 			</fieldset>
 			<fieldset data-role="fieldcontain">
 				<ul style="padding:0px 20px 0px 20px">
 					<label for="select" class="select">*Frequency:</label>
-					<select name="select" id="frequency">
+					<select id="frequency" name="frequency">
 						<!--Add cats here until function makecats-->
 						<option value="0">Select Frequency</option>
 						<option value="Every 4 Hours">Every 4 Hours</option>
@@ -184,24 +122,29 @@
 				<ul>
 				</ul>
 			</fieldset>
+
+			
+
 			<ul style="padding:0px 20px 0px 20px">
-				<input type="button" id="displayLink" value="Display Data" data-theme="e" data-icon="grid" data-iconpos="right"/>
+				
+
+			<input type="button" id="displayLink" value="Display Data" data-theme="e" data-icon="grid" data-iconpos="right"/>
+
 			</ul>
 			<ul>
 			</ul>
 			<ul style="padding:0px 20px 0px 20px">
 				<input type="reset" id="clear" value="Clear Data" data-theme="e" data-icon="delete" data-iconpos="right"/>
 			</ul>
-			<input type = "hidden" value = "true" />
+<!--			<input type = "hidden" value = "true" /> -->
 			<ul>
 			</ul>
 		<div data-role="footer" data-position="fixed" data-id="home">
 			<div data-role="navbar">
 				<ul>
 					<li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
-					<li><a href="#addItem" data-icon="plus" class="ui-btn-active ui-state-persist" data-iconpos="top">Add Event</a></li>
-					<li><a href="#display" data-icon="forward" data-iconpos="top">Events</a></li>
-					<li><a href="#settings" data-icon="gear" data-iconpos="top">Settings</a></li>
+					<li><a href="#addItem" data-icon="plus" data-iconpos="top" class="ui-btn-active ui-state-persist">Add Event</a></li>
+					<li><a href="#displayItems" data-icon="plus" data-iconpos="top">Display</a></li>
 				</ul>
 			</div>
 			</div>
@@ -210,52 +153,31 @@
 
 <!--End addItem Page-->
 
-<!--Begin Data Page to Display Data-->
-	<div data-role="page" id="display" data-theme="b" data-content-theme="b">
+<!--Begin displayItems Page-->
+	<div data-role="page" id="displayItems" style="background:url(img/lightBlue.gif)" data-theme="b" data-content-theme="b">
 		<div data-role="header" id="displayHeader" data-position="fixed">
-				
-				<h1>Events</h1>
+			<h1>Display</h1>
 		</div>
+
+		
+		
+
 		<div data-role="footer" data-position="fixed" data-id="home">
 			<div data-role="navbar">
 				<ul>
 					<li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
 					<li><a href="#addItem" data-icon="plus" data-iconpos="top">Add Event</a></li>
-					<li><a href="#display" data-icon="forward" class="ui-btn-active ui-state-persist" data-iconpos="top">Events</a></li>
-					<li><a href="#settings" data-icon="gear" data-iconpos="top">Settings</a></li>
+					<li><a href="#displayItems" data-icon="plus" data-iconpos="top" class="ui-btn-active ui-state-persist">Display</a></li>
 				</ul>
 			</div>
 		</div>
 	</div>
 
-<!--End Data Display Page-->
-
-<!--Begin Settings Page-->
-
-	<div data-role="page" id="settings" data-theme="b" data-content-theme="b">
-		<div data-role="header" id="settingsHeader" data-position="fixed">
-			<h1>Settings</h1>			
-		</div>
-			<div data-role="footer" data-position="fixed" data-id="home">
-				<div data-role="navbar">
-					<ul>
-						<li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
-						<li><a href="#addItem" data-icon="plus"  data-iconpos="top">Add Event</a></li>
-						<li><a href="#display" data-icon="forward" data-iconpos="top">Events</a></li>
-						<li><a href="#settings" data-icon="gear" class="ui-btn-active ui-state-persist" data-iconpos="top">Settings</a></li>
-					</ul>
-				</div>
-			</div>
-	</div>
-
-<!--End Settings Page-->
-
 <!-- JavaScript under here -->
-	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="js/libs/jQueryv1.7.1.js"></script>
 	<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
 	<script type="text/javascript" src="js/libs/jquery.validate.min.js"></script>
 	<script src="js/json.js" type="text/javascript"></script>
 	<script type="text/javascript" src="js/main.js"></script>
-
 </body>
 </html>

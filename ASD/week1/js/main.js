@@ -1,254 +1,247 @@
 // Wesley Seago
-// ASD Term 1212
-// Medicine Tracker
+// ASD Term 1301
+// Med Tracker
 
+//###########################################################################################
+//home Page
+//###########################################################################################
 $('#home').on('pageinit', function(){
-//code needed for home page goes here
-});	
-
-$('#display').on('pageinit', function(){
-//code needed for display page goes here
-});	
-
-$('#settings').on('pageinit', function(){
-//code needed for settings page goes here
-});	
-		
-//Call JQM Validator	
-$("#addItem").on('pageinit', function(){
-		//Remove Date Validation
-		delete $.validator.methods.date;
-		var myForm = $("#addItemForm");
-			   myForm.validate({
-			invalidHandler: function(form, validator) {
-
-			},
-			submitHandler: function() {
-				var data = myForm.serializeArray();
-				storeData(data);
-			}
-		});
-	
-	//any other code needed for addItem page goes here
 	
 });
 
-//The functions below can go inside or outside the pageinit function for the page in which it is needed.
-
-//Get Element by ID Function
-//Leave this function in place and refactor each instance.
-//Remove after all ge instances have been refactored.
-function ge(x){
-	var theElement = document.getElementById(x);
-	return theElement;
-};
-
-var	getData=function(){
-		if (localStorage.length === 0){
-			alert("There is no data in Local Storage, so default data was added.");
-			autoFillData();
-			window.location.reload();
-		}else{
-		toggleControls("on");
-		//Write Data from local storage to the browser.
-		var makeDiv = document.createElement("div");
-		makeDiv.setAttribute("data-role", "page");
-		makeDiv.setAttribute("id", "items");
-		var makeList = document.createElement("ul");
-		makeDiv.appendChild(makeList);
-		document.body.appendChild(makeDiv);
-		ge("items").style.display = "block";
-		for(var i=0, len=localStorage.length; i<len; i++){
-			var makeli = document.createElement("li");
-			var linksLi = document.createElement("li");
-			makeList.appendChild(makeli);
-			var key = localStorage.key(i);
-			var value = localStorage.getItem(key);
-			//Convert string from local storage value back to an object with JSON parse.
-			var obj = JSON.parse(value);
-			var makeSubList = document.createElement("ul");
-			makeli.appendChild(makeSubList);
-//----------Remove images for now.
-//			getImage(obj.typename[1], makeSubList);
-			for(var n in obj){
-				var makeSubLi = document.createElement("li");
-				makeSubList.appendChild(makeSubLi);
-				var optSubText = obj[n][0]+" "+obj[n][1];
-				makeSubLi.innerHTML = optSubText;
-				makeSubList.appendChild(linksLi);
+//###########################################################################################
+//addItem Page
+//###########################################################################################			
+$('#addItem').on('pageinit', function(){
+		delete $.validator.methods.date; //Remove Date Validation
+		var myForm = $("#addItemForm"); //Call JQ Validator
+			   	myForm.validate({
+				invalidHandler: function(form, validator) {},
+				submitHandler: function() {
+					var data = myForm.serializeArray();
+					storeData(data);
 				}
-			makeItemLinks(localStorage.key(i), linksLi); //Create edit and delete links for each item in local storage.
-			}
-		}
-	};
+		});
+});
 
-function makeItemLinks(key, linksLi){
-		
-		var editLink = document.createElement("a");
-		editLink.href = "#";
-		editLink.key = key;
-		var editText = "Edit Event";
-		editLink.addEventListener("click", editItem);
-		editLink.innerHTML = editText;
-		linksLi.appendChild(editLink);
+//###########################################################################################
+//displayItems Page
+//###########################################################################################
+$('#displayItems').on('pageinit', function(){
+	alert("The displayItems page was initialized");	
+});
 
-		//add line break.
-		var breakTag = document.createElement("br");
-		linksLi.appendChild(breakTag);
+//###########################################################################################
+// displayLink Button
+//###########################################################################################
+	$('#displayLink').on("click", function(){
+		$('#events').empty();
+			displayEvents();
+			});
 
-		//add delete single item link.
-		var deleteLink = document.createElement("a");
-		deleteLink.href = "#";
-		deleteLink.key = key;
-		var deleteText = "Delete Event";
-		deleteLink.addEventListener("click", deleteItem);
-		deleteLink.innerHTML = deleteText;
-		linksLi.appendChild(deleteLink);
-
-	};
-
-function editItem(){
-	//grab the data from our item from local storage.
-	var value = localStorage.getItem(this.key);
-	var item = JSON.parse(value);
-	//Show the form
-	toggleControls("off");
-	//Populate the form fields with current local storage values.
-	ge("name").value = item.name[1];
-	ge("medname").value = item.medname[1];
-//Take out radios until fixed.
-//	var radios = document.forms[0].type;
-//	for (var i=0; i<radios.length; i++){
-//		if (radios[i].value == "OTC" && item.typename[1] == "OverTheCounter"){
-//			radios[i].setAttribute("checked", "checked");
-//		}else if(radios[i].value == "Prescription" && item.typename[1] == "Prescription"){
-//			radios[i].setAttribute("checked", "checked");
-//		}
-//	}
-	ge("dosage").value = item.dosage[1];
-//	ge("frequency").value = item.frequency[1];
-	ge("date").value = item.date[1];
-	ge("notes").value = item.notes[1];
-	//Remove the initial listener from the input 'add medication' button.
-	save.removeEventListener("click", storeData);
-	//change submit button value to edit button
-	var editSubmit = ge("submit")
-//	ge("submit").value = "Edit Event";
-	//Save key value established in this function as a property of the editSubmit event
-	//so we can use that value when we save the data that we edited.
-	editSubmit.addEventListener("click", storeData);
-	editSubmit.key = this.key;
-};
-
-function toggleControls(n){
-	switch(n){
-		case "on":
-			ge("addItemForm").style.display = "none";
-			ge("clear").style.display = "inline";
-			ge("displayLink").style.display = "none";
-			ge("submit").style.display = "inline";
-			break;
-		case "off":
-			ge("addItemForm").style.display = "block";
-			ge("clear").style.display = "inline";
-			ge("displayLink").style.display = "inline";
-			ge("submit").style.display = "inline";//changed from none to inline
-			ge("items").style.display = "none";//changed from none to inline
-			break;
-		default:
-			return false;
-	}
-};
-
-var storeData = function(key){
-		if(!key){
-		var id = Math.floor(Math.random()*100000001);
-		}else{
-			id = key;
-		}
-//----------getSelectedRadio();
-//----------getFrequency();
-		var item 				={};
-			item.name  			=["Name: ", ge("name").value];
-			item.medname 		=["Medication Name: ", ge("medname").value];
-			item.typename		=["Type: ", typeValue];
-			item.dosage 		=["Dosage: ", ge("dosage").value];
-			item.frequency   	=["Frequency: ", frequency.value]; 
-			item.date 	 		=["Date: ", ge("date").value];
-			item.notes	 		=["Notes: ", ge("notes").value];
-		localStorage.setItem(id, JSON.stringify(item));
-		alert("Information Saved!");
-		window.location.reload();
-};
-
-var autoFillData = function (){
-	 for (var n in json){
-		var id = Math.floor(Math.random()*100000001);
-		localStorage.setItem(id, JSON.stringify(json[n]));
-	}
-};
-
-//Get image for the correct category.
-//function getImage(catName, makeSubList){
-//	var imageLi = document.createElement("li");
-//	makeSubList.appendChild(imageLi);
-//	var newImg = document.createElement("img");
-//	var setSrc = newImg.setAttribute("src", "img/"+ catName + ".png");
-//	imageLi.appendChild(newImg);
-//};
-
-// Find value of selected radio button.
-//	var getSelectedRadio = function(){
-	//var radios = document.forms[0].type;
-	//for (var i=0; i<radios.length; i++){
-	//	if(radios[i].checked){
-	//		typeValue = radios[i].value;
-	//	}
-	//}
-//};
-
-//Find value of selected frequency.
-//function getFrequency(){
-//	var thisFrequency = document.forms[0].select;
-//	for (var i=0; i<frequencyGroups.length; i++){
-//		if(frequencyGroups[i].selected){
-//			frequencyValue = frequencyGroups[i].value;
-//		}
-//	}
-//};
-					
-var clearLocal = function(){
-	if(localStorage.length === 0){
-			alert("There is no data to clear.");
+//###########################################################################################
+// Clear Local Storage Button
+//###########################################################################################
+$("#clear").on("click", function(){
+		if(localStorage.length === 0){
+		alert("There is no data to clear.");
 		}else{
 			localStorage.clear();
 			alert("All data has been cleared!");
-			window.location.reload();
-			return;
+				}				
+		});
+
+//###########################################################################################
+// autoFillData function
+//###########################################################################################
+var autoFillData = function(){
+	 		for (var n in json){
+				var id = Math.floor(Math.random()*100000001);
+				localStorage.setItem(id, JSON.stringify(json[n]));
+				}
+			};	
+
+//###########################################################################################
+// storeData function
+//###########################################################################################
+var storeData = function(key){
+			if (!key){
+				alert("Creating a key.");
+				var id = Math.floor(Math.random()*100000001);
+			}else{
+				alert("Using the existing key.");
+				id = key;
+				}
+				var item 				={};
+					item.name  			=["Name: ", $("#name").val()];
+					item.medname 		=["Medication Name: ", $("#medname").val()];
+					item.typename		=["Type: ", $("input:radio[name=type]:checked").val()];
+					item.dosage 		=["Dosage: ", $("#dosage").val()];
+					item.frequency   	=["Frequency: ", frequency.value]; 
+					item.date 	 		=["Date: ", $("#date").val()];
+					item.notes	 		=["Notes: ", $("#notes").val()];
+						localStorage.setItem(id, JSON.stringify(item));
+						alert("Information Saved!");
+						window.location.reload();
+
+
+		};
+
+//###########################################################################################
+// displayEvents function
+//###########################################################################################
+var displayEvents = function (){
+	if(localStorage.length === 0){
+		alert("There is no Data in Local Storage, so Default Data was Added.");
+		autoFillData();
+	}else{
+		alert("Local Storage Contains Data");
+		$.mobile.changePage("#displayItems");
+		var makeEventList = $('<ul>');
+			//give the ul an id so I can clear it without clearing the entire page.
+			//if I use .empty on the page I will lose navigation.
+			makeEventList.attr("id", "events");
+			makeEventList.appendTo('#displayItems');
+				for (var i=0, len=localStorage.length; i<len; i++){
+					var makeEventRecord = $('<li>');
+					var lineBreak = $('<br><br>');
+					makeEventRecord.appendTo(makeEventList);
+					var key = localStorage.key(i);
+					var value = localStorage.getItem(key);
+					var obj = JSON.parse(value);
+						var makeSubList = $('<ul>');
+						makeSubList.appendTo(makeEventRecord);
+							var editLink = $("<a>");
+							var editText = "Edit Event";
+							var deleteLink = $("<a>");
+							var deleteText = "Delete Event";
+							editLink.attr("href", "#addItem");
+							deleteLink.attr("href", "#displayItems");
+							editLink.text(editText);
+							deleteLink.text(deleteText);
+								editLink.on("click", editItem);
+								deleteLink.on("click", deleteItem);
+							editLink.appendTo(makeEventRecord);
+							deleteLink.appendTo(makeEventRecord);
+							lineBreak.appendTo(makeEventRecord);
+								for (var n in obj){
+									var makeSubLi = $('<li>');
+									makeSubLi.appendTo(makeSubList);
+									var optSubText = obj[n][0]+" "+obj[n][1];
+									makeSubLi.text(optSubText);
+
+				}
+										
+			}
+
 		}
 };
 
-var	deleteItem = function (){
-		var ask = confirm("Are you sure you want to delete this event?");
+	
+
+//###########################################################################################
+// makeItemLinks function
+//###########################################################################################		
+
+/*
+function makeItemLinks(key, makeSubLi){
+		var editLink = $("<a>");
+		editLink.attr("href", "#addItem");
+		editLink.attr("key", key);
+		var editText = "Edit Event";
+		editLink.on("click", editItem);
+		editLink.text(editText);
+		editLink.appendTo(makeSubLi);
+			var breakTag = $("<br>");
+			breakTag.appendTo(makeSubLi);
+		var deleteLink = $("<a>");
+		deleteLink.attr("href", "#addItem");
+		deleteLink.attr("key", key);
+		var deleteText = "Delete Event";
+		deleteLink.on("click", deleteItem);
+		deleteLink.text(deleteText);
+		deleteLink.appendTo(makeSubLi);
+};
+*/
+
+
+//###########################################################################################
+// editItem function
+//###########################################################################################
+
+function editItem(){
+			alert("The editItem function has fired.");
+			var value = localStorage.getItem(this.key);
+			var item = JSON.parse(value);
+			alert(item);
+//			var value = localStorage.getItem(this.key);
+			var thiskey = $(this).attr("key");
+//			var value = localStorage.getItem($(this).attr("key"));
+//			var item = JSON.parse(value);
+				//Populate the form fields with current local storage values.
+		 	$('name').val(item.name[1]);
+			$("medname").val = (item.medname[1]);
+			//Take out radios until fixed.
+			//	var radios = document.forms[0].type;
+			//	for (var i=0; i<radios.length; i++){
+			//		if (radios[i].value == "OTC" && item.typename[1] == "OverTheCounter"){
+			//			radios[i].setAttribute("checked", "checked");
+			//		}else if(radios[i].value == "Prescription" && item.typename[1] == "Prescription"){
+			//			radios[i].setAttribute("checked", "checked");
+			//		}
+			//	}
+			$("dosage").val = (item.dosage[1]);
+			$("frequency").val = (item.frequency[1]);
+			$("date").val = (item.date[1]);
+			$("notes").val = (item.notes[1]);
+		
+			var editSubmit = $("submit")
+			$("submit").val("Edit Event");
+		//Save key value established in this function as a property of the editSubmit event
+		//so we can use that value when we save the data that we edited.
+				editSubmit.on("click", storeData);
+				editSubmit.key = this.key;
+				return;
+			};
+
+
+//###########################################################################################
+// deleteItem function
+//###########################################################################################
+
+function deleteItem(){
+	var ask = confirm("Are you sure you want to delete this event?");
 		if (ask){
 			localStorage.removeItem(this.key);
-			alert("Event deleted.");
-			window.location.reload();
+			alert("Event Deleted.");
+			$.mobile.changePage("#addItem");
 		}else{
-			alert("Event was NOT deleted.")
-		}	
-};	
+			alert("Event was NOT Deleted.");
+		}
+		return false;
+};
 
-var displayLink = ge("displayLink");
-	displayLink.addEventListener("click", getData);
 
-var clearLink = ge("clear");
-	clearLink.addEventListener("click", clearLocal);
 
-//var save = ge("submit");
-//	save.addEventListener("click", storeData);
 
-var typeValue;
+
+//					"id": items,
+//					"data-role": "collapsible",
+//					"data-collapsed": "true",
+//					"data-inset": "true",
+//					"data-theme": "b"
+//					.appendTo('#display');
+
+
+
+
+
+//});
+
+
+
+
+
 
 
 
