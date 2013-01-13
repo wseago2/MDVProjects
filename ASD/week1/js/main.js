@@ -6,7 +6,7 @@
 //home Page
 //###########################################################################################
 $('#home').on('pageinit', function(){
-	
+	alert("The home page was initialized");
 });
 
 //###########################################################################################
@@ -28,18 +28,18 @@ $('#addItem').on('pageinit', function(){
 //displayItems Page
 //###########################################################################################
 $('#displayItems').on('pageinit', function(){
-	alert("The displayItems page was initialized");	
+		
 });
 
 //###########################################################################################
 // displayLink Button
 //###########################################################################################
 	$('#displayLink').on("click", function(){
-		$('#events').empty();
+//		$('#events').empty();
 //Take this out when I get keys resolved. This will not work if pressing
 //the display nav link after the displayEvents function runs.
 			displayEvents();
-			});
+});
 
 //###########################################################################################
 // Clear Local Storage Button
@@ -70,13 +70,14 @@ var storeData = function(key){
 //Using existing key even when a new key should be assigned.
 //This is a result of the key being wrapped in jQuery and turned into an object.
 //Gotta get this solved to move forward with edit and delete links.
-			if (!key){
-				alert("Creating a key.");
+//			if (!key){
+//				alert("Creating a key.");
 				var id = Math.floor(Math.random()*100000001);
-			}else{
-				alert("Using the existing key.");
-				id = key;
-				}
+//			}else{
+//				alert("Using the existing key.");
+//				id = key;
+//				key = id;
+//				}
 				var item 				={};
 					item.name  			=["Name: ", $("#name").val()];
 					item.medname 		=["Medication Name: ", $("#medname").val()];
@@ -88,7 +89,7 @@ var storeData = function(key){
 						localStorage.setItem(id, JSON.stringify(item));
 						alert("Information Saved!");
 //						window.location.reload();
-						$.mobile.changepage("#home");
+						$.mobile.changePage("#home");
 
 
 		};
@@ -97,6 +98,8 @@ var storeData = function(key){
 // displayEvents function
 //###########################################################################################
 var displayEvents = function (){
+	$('.events').remove();
+	alert("The events list was cleared!");
 	if(localStorage.length === 0){
 		alert("There is no Data in Local Storage, so Default Data was Added.");
 		autoFillData();
@@ -108,12 +111,14 @@ var displayEvents = function (){
 			//if I use .empty on the page I will lose navigation.
 			//I would really like to keep the persistent, consistent navigation.
 			makeEventList.attr("id", "events");
-			makeEventList.appendTo('#displayItems');
+			makeEventList.attr("class", "events");
+			makeEventList.appendTo("#displayItems");
 				for (var i=0, len=localStorage.length; i<len; i++){
 					var makeEventRecord = $('<li>');
 					var lineBreak = $('<br><br>');
 					makeEventRecord.appendTo(makeEventList);
 					var key = localStorage.key(i);
+//					var key = $("localStorage.key(i)").html(val);
 					var value = localStorage.getItem(key);
 					var obj = JSON.parse(value);
 						var makeSubList = $('<ul>');
@@ -121,7 +126,7 @@ var displayEvents = function (){
 							var editLink = $("<button>");
 							var editText = "Edit Event";
 							var deleteLink = $("<button>");
-							var deleteText = " Delete Event";
+							var deleteText = "Delete Event";
 							editLink.attr("href", "#addItem");
 							deleteLink.attr("href", "#displayItems");
 							editLink.text(editText);
@@ -136,59 +141,30 @@ var displayEvents = function (){
 									makeSubLi.appendTo(makeSubList);
 									var optSubText = obj[n][0]+" "+obj[n][1];
 									makeSubLi.text(optSubText);
-
-				}
-										
+									}				
+					}
 			}
 
-		}
 };
-
-	
-
-//###########################################################################################
-// makeItemLinks function
-//###########################################################################################		
-
-//Make the buttons right in the displayEvents function. After getting the key fixed,
-//add id attributes to the buttons to run functions from .on click events.
-/*
-function makeItemLinks(key, makeSubLi){
-		var editLink = $("<a>");
-		editLink.attr("href", "#addItem");
-		editLink.attr("key", key);
-		var editText = "Edit Event";
-		editLink.on("click", editItem);
-		editLink.text(editText);
-		editLink.appendTo(makeSubLi);
-			var breakTag = $("<br>");
-			breakTag.appendTo(makeSubLi);
-		var deleteLink = $("<a>");
-		deleteLink.attr("href", "#addItem");
-		deleteLink.attr("key", key);
-		var deleteText = "Delete Event";
-		deleteLink.on("click", deleteItem);
-		deleteLink.text(deleteText);
-		deleteLink.appendTo(makeSubLi);
-};
-*/
-
 
 //###########################################################################################
 // editItem function
 //###########################################################################################
 
+
 function editItem(){
 			alert("The editItem function has fired.");
 			var value = localStorage.getItem(this.key);
+//			var value = this.getItem(key);
+			alert(value);
 			var item = JSON.parse(value);
 			alert(item);
 //			var value = localStorage.getItem(this.key);
-			var thiskey = $(this).attr("key");
+//			var thiskey = $(this).attr("key");
 //			var value = localStorage.getItem($(this).attr("key"));
 //			var item = JSON.parse(value);
 				//Populate the form fields with current local storage values.
-		 	$('name').val(item.name[1]);
+		 	$("name").val(item.name[1]);
 			$("medname").val = (item.medname[1]);
 			//Take out radios until fixed.
 			//	var radios = document.forms[0].type;
@@ -223,7 +199,7 @@ function deleteItem(){
 		if (ask){
 			localStorage.removeItem(this.key);
 			alert("Event Deleted.");
-			$.mobile.changePage("#home");
+			$.mobile.changePage("#addItem");
 		}else{
 			alert("Event was NOT Deleted.");
 		}
@@ -231,21 +207,6 @@ function deleteItem(){
 };
 
 
-
-
-
-//					"id": items,
-//					"data-role": "collapsible",
-//					"data-collapsed": "true",
-//					"data-inset": "true",
-//					"data-theme": "b"
-//					.appendTo('#display');
-
-
-
-
-
-//});
 
 
 
