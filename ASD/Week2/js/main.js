@@ -34,11 +34,8 @@ $('#displayItems').on('pageinit', function(){
 //###########################################################################################
 // displayLink Button
 //###########################################################################################
-	$('#displayLink').on("click", function(){
-//		$('#events').empty();
-//Take this out when I get keys resolved. This will not work if pressing
-//the display nav link after the displayEvents function runs.
-			displayEvents();
+$('#displayLink').on("click", function(){
+		displayEvents();
 });
 
 //###########################################################################################
@@ -51,7 +48,7 @@ $("#clear").on("click", function(){
 			localStorage.clear();
 			alert("All data has been cleared!");
 				}				
-		});
+});
 
 //###########################################################################################
 // autoFillData function
@@ -61,7 +58,7 @@ var autoFillData = function(){
 				var id = Math.floor(Math.random()*100000001);
 				localStorage.setItem(id, JSON.stringify(json[n]));
 				}
-			};	
+};	
 
 //###########################################################################################
 // storeData function
@@ -92,7 +89,7 @@ var storeData = function(key){
 						$.mobile.changePage("#home");
 
 
-		};
+};
 
 //###########################################################################################
 // displayEvents function
@@ -150,8 +147,6 @@ var displayEvents = function (){
 //###########################################################################################
 // editItem function
 //###########################################################################################
-
-
 function editItem(){
 			alert("The editItem function has fired.");
 			var value = localStorage.getItem(this.key);
@@ -187,13 +182,12 @@ function editItem(){
 				editSubmit.on("click", storeData);
 				editSubmit.key = this.key;
 				return;
-			};
+};
 
 
 //###########################################################################################
 // deleteItem function
 //###########################################################################################
-
 function deleteItem(){
 	var ask = confirm("Are you sure you want to delete this event?");
 		if (ask){
