@@ -23,35 +23,6 @@ $('#addItem').on('pageinit', function(){
 				}
 		});	
 
-		//###########################################################################################
-		// storeData function
-		//###########################################################################################
-		var storeData = function(key){
-			alert(key);
-//Using existing key even when a new key should be assigned.
-//This is a result of the key being wrapped in jQuery and turned into an object.
-//Gotta get this solved to move forward with edit and delete links.
-//			if (!key){
-//				alert("Creating a key.");
-				var id = Math.floor(Math.random()*100000001);
-//			}else{
-//				alert("Using the existing key.");
-//				id = key;
-//				key = id;
-//				}
-				var item 				={};
-					item.name  			=["Name: ", $("#name").val()];
-					item.medname 		=["Medication Name: ", $("#medname").val()];
-					item.typename		=["Type: ", $("input:radio[name=type]:checked").val()];
-					item.dosage 		=["Dosage: ", $("#dosage").val()];
-					item.frequency   	=["Frequency: ", frequency.value]; 
-					item.date 	 		=["Date: ", $("#date").val()];
-					item.notes	 		=["Notes: ", $("#notes").val()];
-						localStorage.setItem(id, JSON.stringify(item));
-						alert("Information Saved!");
-						window.location.reload();
-		};
-
 		//####################################################################################
 		// displayLink Button
 		//####################################################################################
@@ -86,6 +57,35 @@ $('#displayItems').on('pageinit', function(){
 			
 });
 
+//###########################################################################################
+// storeData function
+//###########################################################################################
+	var storeData = function(key){
+			alert(key);
+//Using existing key even when a new key should be assigned.
+//This is a result of the key being wrapped in jQuery and turned into an object.
+//Gotta get this solved to move forward with edit and delete links.
+//			if (!key){
+//				alert("Creating a key.");
+				var id = Math.floor(Math.random()*100000001);
+//			}else{
+//				alert("Using the existing key.");
+//				id = key;
+//				key = id;
+//				}
+				var item 				={};
+					item.name  			=["Name: ", $("#name").val()];
+					item.medname 		=["Medication Name: ", $("#medname").val()];
+					item.typename		=["Type: ", $("input:radio[name=type]:checked").val()];
+					item.dosage 		=["Dosage: ", $("#dosage").val()];
+					item.frequency   	=["Frequency: ", frequency.value]; 
+					item.date 	 		=["Date: ", $("#date").val()];
+					item.notes	 		=["Notes: ", $("#notes").val()];
+						localStorage.setItem(id, JSON.stringify(item));
+						alert("Information Saved!");
+						window.location.reload();
+		};
+
 //###################################################################################
 // displayEvents function
 //###################################################################################
@@ -111,6 +111,7 @@ $('#displayItems').on('pageinit', function(){
 							var makeSubList = $('<ul>');
 							makeSubList.appendTo(makeEventRecord);
 							var editLink = $("<button>");
+								editLink.attr("key", key);
 							var editText = "Edit This Event";
 							var deleteLink = $("<button>");
 								deleteLink.attr("key", key);
@@ -147,42 +148,28 @@ $('#displayItems').on('pageinit', function(){
 //###################################################################################
 // editItem function
 //###################################################################################
-		function editItem(){
+	var editItem = function(){
 			var currentKey = $(this).attr("key");
-			var value = localStorage.getItem(this.key);
-//		    var value = deleteLink.this.key;
-			alert(value);
-//			var item = JSON.parse(value);
-//			alert(item);
-//			var value = localStorage.getItem(this.key);
-//			var thiskey = $(this).attr("key");
-//			var value = localStorage.getItem($(this).attr("key"));
-//			var item = JSON.parse(value);
+			var value = localStorage.getItem($(this).attr("key"));
+		alert("currentKey = "+currentKey);
+		alert("value = "+value);
+			var item = JSON.parse(value);
 				//Populate the form fields with current local storage values.
-//		 	$("name").val(item.name[1]);
-//			$("medname").val = (item.medname[1]);
-			//Take out radios until fixed.
-			//	var radios = document.forms[0].type;
-			//	for (var i=0; i<radios.length; i++){
-			//		if (radios[i].value == "OTC" && item.typename[1] == "OverTheCounter"){
-			//			radios[i].setAttribute("checked", "checked");
-			//		}else if(radios[i].value == "Prescription" && item.typename[1] == "Prescription"){
-			//			radios[i].setAttribute("checked", "checked");
-			//		}
-			//	}
-//			$("dosage").val = (item.dosage[1]);
-//			$("frequency").val = (item.frequency[1]);
-//			$("date").val = (item.date[1]);
-//			$("notes").val = (item.notes[1]);
-		
-//			var editSubmit = $("submit")
-//			$("submit").val("Edit Event");
+		 	$('#name').val(item.name[1]);
+			$('#medname').val(item.medname[1]);
+			$('#typename').val(item.typename[1]);
+			$('#dosage').val(item.dosage[1]);
+			$('#frequency').val(item.frequency[1]);
+			$('#date').val(item.date[1]);
+			$('#notes').val(item.notes[1]);
+			$.mobile.changePage("#addItem");
+			localStorage.removeItem(currentKey);
 			//Save key value established in this function as a property of the editSubmit event
 			//so we can use that value when we save the data that we edited.
-//				editSubmit.on("click", storeData);
+//				submit.on("click", storeData);
 //				editSubmit.key = this.key;
-//				return;
-			};
+				
+	};
 
 //###################################################################################
 // deleteItem function
