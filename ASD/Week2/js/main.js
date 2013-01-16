@@ -6,7 +6,6 @@
 //home Page
 //###########################################################################################
 $('#home').on('pageinit', function(){
-	
 });
 
 //###########################################################################################
@@ -21,7 +20,7 @@ $('#addItem').on('pageinit', function(){
 					var data = myForm.serializeArray();
 					storeData(data);
 				}
-		});	
+		});
 
 		//####################################################################################
 		// displayLink Button
@@ -41,30 +40,125 @@ $('#addItem').on('pageinit', function(){
 				alert("All data has been cleared!");
 				}				
 		});
+	
 });
 
 //###########################################################################################
 //loadData Page
 //###########################################################################################
 $('#loadData').on('pageinit', function(){
-	
-});
 
+//*********************************
+//load json function
+//*********************************
+	$('#loadjson').on("click", function(){
+		$(".events").remove();
+		$.ajax({
+			url: 'xhr/data.json',
+			type: 'GET',
+			dataType: 'json',
+			success: function(json){
+//				alert("JSON loaded!!!");
+				for(var i = 0, j = json.data.length; i < j; i++){
+					var myJson = json.data[i];
+					$(' ' +
+						'<ul class="events">' +
+							'<li> Name: ' + myJson.name + '</li>' +
+							'<li> Medication Name: ' + myJson.medname + '</li>' +
+							'<li> Medication Type: ' + myJson.typename + '</li>' +
+							'<li> Dosage: ' + myJson.dosage + '</li>' +
+							'<li> Frequency: ' + myJson.frequency + '</li>' +
+							'<li> Date: ' + myJson.date + '</li>' +
+							'<li> Notes: ' + myJson.notes + '</li>' +
+						'</ul>'
+						).appendTo('#eventDisplay');
+				}
+					$.mobile.changePage('#displayItems');
+			}
+		});
+		
+	});
+
+//*********************************
+//load xml function
+//*********************************
+	$("#loadxml").on("click", function(){
+		$(".events").remove();
+		$.ajax({
+			url: 'xhr/data.xml',
+			type: 'GET',
+			dataType: 'xml',
+			success: function(xml){
+//				alert(xml);
+				$(xml).find('event').each(function(){
+					var myXmlData = {};
+					myXmlData.name = $(this).find('name').text();
+					myXmlData.medname = $(this).find('medname').text();
+					myXmlData.typename = $(this).find('typename').text();
+					myXmlData.dosage = $(this).find('dosage').text();
+					myXmlData.frequency = $(this).find('frequency').text();
+					myXmlData.date = $(this).find('date').text();
+					myXmlData.notes = $(this).find('notes').text();
+						$(' '+
+							'<ul class="events">'+
+								'<li>'+ 'Name: ' + myXmlData.name +'</li>'+
+								'<li>'+ 'Medication Name: ' + myXmlData.medname +'</li>'+
+								'<li>'+ 'Medication Type: ' + myXmlData.typename +'</li>'+
+								'<li>'+ 'Dosage: ' + myXmlData.dosage +'</li>'+
+								'<li>'+ 'Frequency: ' + myXmlData.frequency +'</li>'+
+								'<li>'+ 'Date: ' + myXmlData.date +'</li>'+
+								'<li>'+ 'Notes: ' + myXmlData.notes +'</li>'+
+							'</ul>'
+						).appendTo('#eventDisplay');
+				});
+			$.mobile.changePage('#displayItems');
+			}
+		});
+	});
+//*********************************
+//load csv function
+//*********************************
+
+	$("#loadcsv").on("click", function(){
+		$(".events").remove();
+		$.ajax({
+			url: 'xhr/data.csv',
+			type: 'GET',
+			dataType: 'text',
+			success: function(csvLoad){
+				var myEvent = csvLoad.split("\n");
+				for (var i = 1; i < myEvent.length; i++){
+					var row = myEvent[i];
+					var columns = row.split(",");
+					$(''+
+						'<ul class="events">'+
+							'<li>' + 'Name: ' + columns[0] + '</li>'+
+							'<li>' + 'Medication Name: ' + columns[1] + '</li>'+
+							'<li>' + 'Medication Type: ' + columns[2] + '</li>'+
+							'<li>' + 'Dosage: ' + columns[3] + '</li>'+
+							'<li>' + 'Frequency: ' + columns[4] + '</li>'+
+							'<li>' + 'Date: ' + columns[5] + '</li>'+
+							'<li>' + 'Notes: ' + columns[6] + '</li>'+
+						'</ul>'
+						).appendTo('#eventDisplay');
+				}
+				$.mobile.changePage('#displayItems');
+			}
+		});
+	});
+
+});	
 //###########################################################################################
 //displayItems Page
 //###########################################################################################
-$('#displayItems').on('pageinit', function(){
-			
+$('#displayItems').on('pageinit', function(){	
+
 });
 
 //###########################################################################################
 // storeData function
 //###########################################################################################
-	var storeData = function(key){
-			alert(key);
-//Using existing key even when a new key should be assigned.
-//This is a result of the key being wrapped in jQuery and turned into an object.
-//Gotta get this solved to move forward with edit and delete links.
+		var storeData = function(key){
 //			if (!key){
 //				alert("Creating a key.");
 				var id = Math.floor(Math.random()*100000001);
@@ -84,7 +178,12 @@ $('#displayItems').on('pageinit', function(){
 						localStorage.setItem(id, JSON.stringify(item));
 						alert("Information Saved!");
 						window.location.reload();
+						$("#addItemForm").empty();
+//						$.mobile.changePage("#displayItems");
 		};
+
+//162 frequency changed
+
 
 //###################################################################################
 // displayEvents function
@@ -138,11 +237,11 @@ $('#displayItems').on('pageinit', function(){
 //###########################################################################################
 // autoFillData function
 //###########################################################################################
-		var autoFillData = function(){
-	 		for (var n in json){
-				var id = Math.floor(Math.random()*100000001);
-				localStorage.setItem(id, JSON.stringify(json[n]));
-				}
+	var autoFillData = function(){
+	 	for (var n in json){
+			var id = Math.floor(Math.random()*100000001);
+			localStorage.setItem(id, JSON.stringify(json[n]));
+			}
 		};
 
 //###################################################################################
@@ -151,10 +250,7 @@ $('#displayItems').on('pageinit', function(){
 	var editItem = function(){
 			var currentKey = $(this).attr("key");
 			var value = localStorage.getItem($(this).attr("key"));
-		alert("currentKey = "+currentKey);
-		alert("value = "+value);
 			var item = JSON.parse(value);
-				//Populate the form fields with current local storage values.
 		 	$('#name').val(item.name[1]);
 			$('#medname').val(item.medname[1]);
 			$('#typename').val(item.typename[1]);
@@ -164,12 +260,12 @@ $('#displayItems').on('pageinit', function(){
 			$('#notes').val(item.notes[1]);
 			$.mobile.changePage("#addItem");
 			localStorage.removeItem(currentKey);
-			//Save key value established in this function as a property of the editSubmit event
-			//so we can use that value when we save the data that we edited.
-//				submit.on("click", storeData);
-//				editSubmit.key = this.key;
+//I still need to change the submit button to say edit, create a hidden button called cancel
+//and have it unhide here, and hide the display data and clear data buttons while editing.
+
 				
 	};
+
 
 //###################################################################################
 // deleteItem function
@@ -185,8 +281,57 @@ $('#displayItems').on('pageinit', function(){
 					alert("Event was NOT Deleted.");
 			}
 		};
+//###########################################################################################
+//     load json data
+//###########################################################################################
+//	$("#loadjson").on("click", function(){
+//		alert("The Load Json button was clicked.");
+//		$('.events').remove();
+//		alert("The events div was cleared.");
+//		$.ajax({
+//				url: 'xhr/data.json',
+//				type: 'GET',
+//				dataType: 'json',
+//				success: alert(response),
+//				success: function(response){
+//					alert(response);
+//					console.log(response);
+//				}
+//		})		
+//	});
+//		$('.events').remove();
 
+//				success: alert(json),
+//				success: loadMyData(json),
+//				error: alert("Error"),
+//					alert("Got json data");
+//					console.log(items);
+//					var makeEventList = $('<ul>');
+//					makeEventList.attr("id", "events");
+//					makeEventList.attr("class", "events");
+//					makeEventList.appendTo("#eventDisplay");
+//						for(var i=0, j=json.items.length; i<j; i++){
+//							var jsonItems = json.items[i];
+//							alert(jsonItems);
+//								$('' +
+//										'<li><p> Name:' + jsonItems.name + '</p>' +
+//										'<li><p> Medicine Name:' + jsonItems.medname + '</p>' +
+//										'<li><p> Medicine Type:' + jsonItems.typename + '</p>' +
+//										'<li><p> Dosage:' + jsonItems.dosage + '</p>' +
+//										'<li><p> Frequency:' + jsonItems.frequency + '</p>' +
+//										'<li><p> Date:' + jsonItems.date + '</p>' +
+//										'<li><p> Name:' + jsonItems.name + '</p>' +
+//										'<li><p> Notes:' + jsonItems.notes + '</p></li>' +
+//										'<br>'
+//								).appendTo('#events');
+//							};
+//					$.mobile.changePage("#displayItems");
+//		});
+//	});
 
+//###########################################################################################
+//LoadMyData function
+//###########################################################################################
 
 
 
