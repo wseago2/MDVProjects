@@ -91,23 +91,23 @@ $('#loadData').on('pageinit', function(){
 			success: function(xml){
 //				alert(xml);
 				$(xml).find('event').each(function(){
-					var myXmlData = {};
-					myXmlData.name = $(this).find('name').text();
-					myXmlData.medname = $(this).find('medname').text();
-					myXmlData.typename = $(this).find('typename').text();
-					myXmlData.dosage = $(this).find('dosage').text();
-					myXmlData.frequency = $(this).find('frequency').text();
-					myXmlData.date = $(this).find('date').text();
-					myXmlData.notes = $(this).find('notes').text();
+					var myXml = {};
+					myXml.name = $(this).find('name').text();
+					myXml.medname = $(this).find('medname').text();
+					myXml.typename = $(this).find('typename').text();
+					myXml.dosage = $(this).find('dosage').text();
+					myXml.frequency = $(this).find('frequency').text();
+					myXml.date = $(this).find('date').text();
+					myXml.notes = $(this).find('notes').text();
 						$(' '+
 							'<ul class="events">'+
-								'<li>'+ 'Name: ' + myXmlData.name +'</li>'+
-								'<li>'+ 'Medication Name: ' + myXmlData.medname +'</li>'+
-								'<li>'+ 'Medication Type: ' + myXmlData.typename +'</li>'+
-								'<li>'+ 'Dosage: ' + myXmlData.dosage +'</li>'+
-								'<li>'+ 'Frequency: ' + myXmlData.frequency +'</li>'+
-								'<li>'+ 'Date: ' + myXmlData.date +'</li>'+
-								'<li>'+ 'Notes: ' + myXmlData.notes +'</li>'+
+								'<li>'+ 'Name: ' + myXml.name +'</li>'+
+								'<li>'+ 'Medication Name: ' + myXml.medname +'</li>'+
+								'<li>'+ 'Medication Type: ' + myXml.typename +'</li>'+
+								'<li>'+ 'Dosage: ' + myXml.dosage +'</li>'+
+								'<li>'+ 'Frequency: ' + myXml.frequency +'</li>'+
+								'<li>'+ 'Date: ' + myXml.date +'</li>'+
+								'<li>'+ 'Notes: ' + myXml.notes +'</li>'+
 							'</ul>'
 						).appendTo('#eventDisplay');
 				});
@@ -125,10 +125,10 @@ $('#loadData').on('pageinit', function(){
 			url: 'xhr/data.csv',
 			type: 'GET',
 			dataType: 'text',
-			success: function(csvLoad){
-				var myEvent = csvLoad.split("\n");
-				for (var i = 1; i < myEvent.length; i++){
-					var row = myEvent[i];
+			success: function(csv){
+				var myCsv = csv.split("\n");
+				for (var i = 0; i < myCsv.length; i++){
+					var row = myCsv[i];
 					var columns = row.split(",");
 					$(''+
 						'<ul class="events">'+
@@ -159,14 +159,7 @@ $('#displayItems').on('pageinit', function(){
 // storeData function
 //###########################################################################################
 		var storeData = function(key){
-//			if (!key){
-//				alert("Creating a key.");
 				var id = Math.floor(Math.random()*100000001);
-//			}else{
-//				alert("Using the existing key.");
-//				id = key;
-//				key = id;
-//				}
 				var item 				={};
 					item.name  			=["Name: ", $("#name").val()];
 					item.medname 		=["Medication Name: ", $("#medname").val()];
@@ -179,11 +172,7 @@ $('#displayItems').on('pageinit', function(){
 						alert("Information Saved!");
 						window.location.reload();
 						$("#addItemForm").empty();
-//						$.mobile.changePage("#displayItems");
 		};
-
-//162 frequency changed
-
 
 //###################################################################################
 // displayEvents function
@@ -266,7 +255,6 @@ $('#displayItems').on('pageinit', function(){
 				
 	};
 
-
 //###################################################################################
 // deleteItem function
 //###################################################################################
@@ -281,66 +269,3 @@ $('#displayItems').on('pageinit', function(){
 					alert("Event was NOT Deleted.");
 			}
 		};
-//###########################################################################################
-//     load json data
-//###########################################################################################
-//	$("#loadjson").on("click", function(){
-//		alert("The Load Json button was clicked.");
-//		$('.events').remove();
-//		alert("The events div was cleared.");
-//		$.ajax({
-//				url: 'xhr/data.json',
-//				type: 'GET',
-//				dataType: 'json',
-//				success: alert(response),
-//				success: function(response){
-//					alert(response);
-//					console.log(response);
-//				}
-//		})		
-//	});
-//		$('.events').remove();
-
-//				success: alert(json),
-//				success: loadMyData(json),
-//				error: alert("Error"),
-//					alert("Got json data");
-//					console.log(items);
-//					var makeEventList = $('<ul>');
-//					makeEventList.attr("id", "events");
-//					makeEventList.attr("class", "events");
-//					makeEventList.appendTo("#eventDisplay");
-//						for(var i=0, j=json.items.length; i<j; i++){
-//							var jsonItems = json.items[i];
-//							alert(jsonItems);
-//								$('' +
-//										'<li><p> Name:' + jsonItems.name + '</p>' +
-//										'<li><p> Medicine Name:' + jsonItems.medname + '</p>' +
-//										'<li><p> Medicine Type:' + jsonItems.typename + '</p>' +
-//										'<li><p> Dosage:' + jsonItems.dosage + '</p>' +
-//										'<li><p> Frequency:' + jsonItems.frequency + '</p>' +
-//										'<li><p> Date:' + jsonItems.date + '</p>' +
-//										'<li><p> Name:' + jsonItems.name + '</p>' +
-//										'<li><p> Notes:' + jsonItems.notes + '</p></li>' +
-//										'<br>'
-//								).appendTo('#events');
-//							};
-//					$.mobile.changePage("#displayItems");
-//		});
-//	});
-
-//###########################################################################################
-//LoadMyData function
-//###########################################################################################
-
-
-
-
-
-
-
-
-
-
-
-

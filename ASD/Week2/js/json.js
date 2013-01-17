@@ -4,7 +4,7 @@
 // Medicine Tracker
 
 var json = {
-/*	"medication1": {
+	"medication1": {
 		"name": ["Name:", "Chloe"],
 		"medname": ["Medication Name:", "Tylenol"],
 		"typename": ["Type:", "OTC"],
@@ -157,7 +157,6 @@ var json = {
 		"date": ["Date:", "2012-9-18"],
 		"notes": ["Notes:", "Strep Throat"]
 	},
-	*/
 	"medication18": {
 		"name": ["Name:", "Reagan"],
 		"medname": ["Medication Name:", "Robitussin"],
