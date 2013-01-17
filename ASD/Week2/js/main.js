@@ -58,7 +58,7 @@ $('#loadData').on('pageinit', function(){
 			type: 'GET',
 			dataType: 'json',
 			success: function(json){
-//				alert("JSON loaded!!!");
+				console.log(json);
 				for(var i = 0, j = json.data.length; i < j; i++){
 					var myJson = json.data[i];
 					$(' ' +
@@ -89,7 +89,7 @@ $('#loadData').on('pageinit', function(){
 			type: 'GET',
 			dataType: 'xml',
 			success: function(xml){
-//				alert(xml);
+				console.log(xml);
 				$(xml).find('event').each(function(){
 					var myXml = {};
 					myXml.name = $(this).find('name').text();
@@ -126,6 +126,7 @@ $('#loadData').on('pageinit', function(){
 			type: 'GET',
 			dataType: 'text',
 			success: function(csv){
+				console.log(csv);
 				var myCsv = csv.split("\n");
 				for (var i = 0; i < myCsv.length; i++){
 					var row = myCsv[i];
