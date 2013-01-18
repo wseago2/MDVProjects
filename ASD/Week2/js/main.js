@@ -53,6 +53,9 @@ $('#loadData').on('pageinit', function(){
 //*********************************
 	$('#loadjson').on("click", function(){
 		$(".events").remove();
+		$(".eventHeader").remove();
+		var makeEventHeader = $('<h2 class="eventHeader">JSON Data</h2>');
+		makeEventHeader.appendTo('#eventHeader');
 		$.ajax({
 			url: 'xhr/data.json',
 			type: 'GET',
@@ -84,6 +87,9 @@ $('#loadData').on('pageinit', function(){
 //*********************************
 	$("#loadxml").on("click", function(){
 		$(".events").remove();
+		$(".eventHeader").remove();
+		var makeEventHeader = $('<h2 class="eventHeader">XML Data</h2>');
+		makeEventHeader.appendTo('#eventHeader');
 		$.ajax({
 			url: 'xhr/data.xml',
 			type: 'GET',
@@ -121,6 +127,9 @@ $('#loadData').on('pageinit', function(){
 
 	$("#loadcsv").on("click", function(){
 		$(".events").remove();
+		$(".eventHeader").remove();
+		var makeEventHeader = $('<h2 class="eventHeader">CSV Data</h2>');
+		makeEventHeader.appendTo('#eventHeader');
 		$.ajax({
 			url: 'xhr/data.csv',
 			type: 'GET',
