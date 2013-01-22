@@ -1,0 +1,218 @@
+<!-- Wesley Seago  -->
+<!-- ASD Term 1301 -->
+<!-- Med Tracker -->
+
+<!doctype html>  
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Medication Tracker</title>
+		<!--  Mobile viewport optimized: j.mp/bplateviewport -->
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Mobile IE needs ClearType for smoothing fonts -->
+		<meta http-equiv="cleartype" content="on">
+		<!-- StyleSheets under here -->
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+		<link rel="stylesheet" href="css/style.css"/>
+		<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+		<script src="js/libs/modernizr.custom.min.js"></script> 
+	</head>
+<body>
+<!--Begin Home Page-->
+	<div data-role="page" id="home" style="background:url(img/lightBlue.gif)" data-theme="b" data-content-theme="b">
+		<div data-role="header" id="mainHeader" data-position="fixed">
+			<h1>Med Tracker</h1>
+		</div>
+			<img src="img/Logo320.png">
+			<h2>Keep Track of Your Families Medications!</h2>
+<!--			<p><a href="#addItem" data-role="button" data-icon="arrow-r" data-iconpos="right">Add Medication</a></p> -->
+		<div data-role="footer" data-position="fixed" data-id="home">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-icon="home" class="ui-btn-active ui-state-persist" data-iconpos="top">Home</a></li>
+					<li><a href="#addItem" data-icon="plus" data-iconpos="top" data-ajax="false">Add Event</a></li>
+					<li><a href="#loadData" data-icon="gear" data-iconpos="top">Load Data</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+<!--End Home Page-->
+
+<!--Begin addItem Page-->
+
+	<div data-role="page" id="addItem" style="background:url(img/lightBlue.gif)" data-theme="b" data-content-theme="b">
+<!--Remove form action with jquery-->
+<!--		<form action="" method="post" id="addItemForm"> -->
+		<form id="addItemForm">
+			<div data-role="header" id="addItemHeader" data-position="fixed">
+				<h1>Add Event</h1>
+			</div>
+			<fieldset data-role="fieldcontain">
+				<small>* fields are required</small>
+				<!--<ul id="errors"></ul>-->
+			</fieldset>
+			<fieldset data-role="fieldcontain">
+				<ul style="padding:0px 20px 0px 20px">
+					<label for="name">*Name:</label>
+					<input type="text" name="name" id="name" class="required" value="" required placeholder="Enter Patient Name"/>
+				</ul>
+			</fieldset>	
+			<fieldset data-role="fieldcontain">
+				<ul style="padding:0px 20px 0px 20px">
+					<label for="medname">*Medication:</label>
+					<input type="text" name="medname" id="medname" class="required" value="" required placeholder="Enter Medication Name"/>
+				</ul>
+			</fieldset>
+			<fieldset data-role="fieldcontain">
+				<ul style="padding:0px 20px 0px 20px">
+					<div data-role="controlgroup">
+						<legend>Choose Medication Type:</legend>
+								<input type="radio" name="type" id="otc" value="Over The Counter" checked="checked"/>
+								<label for="otc">Over the Counter</label>
+								<input type="radio" name="type" id="pre" value="Prescription"/>
+								<label for="pre">Prescription</label>
+								<input type="radio" name="type" id="vit" value="Vitamin"/>
+								<label for="vit">Vitamin</label>
+					</div>
+				</ul>
+			</fieldset>
+			<fieldset data-role="fieldcontain">
+				<ul style="padding:0px 20px 0px 20px">
+					<label for="dosage">Dosage: (ml or qty)</label>
+					<input type="range" name="dosage" id="dosage" value="1" min="1" max="50" step="1" />
+				</ul>
+			</fieldset>
+			<fieldset data-role="fieldcontain">
+				<ul style="padding:0px 20px 0px 20px">
+					<label for="select" class="select">*Frequency:</label>
+					<select id="frequency" name="frequency">
+						<!--Add cats here until function makecats-->
+						<option value="0">Select Frequency</option>
+						<option value="Every 4 Hours">Every 4 Hours</option>
+						<option value="Every 6 Hours">Every 6 Hours</option>
+						<option value="Every 8 Hours">Every 8 Hours</option>
+						<option value="Every 12 Hours">Every 12 Hours</option>
+						<option value="Every 24 Hours">Every 24 Hours</option>
+					</select>
+				</ul>
+				<ul>
+				</ul>
+			</fieldset>
+			<fieldset data-role="fieldcontain">
+				<ul style="padding:0px 20px 0px 20px">
+					<label for="date">*Date:</label>
+					<input type="datetime-local" id="date" name="date" placeholder="MM/DD/YYYY">
+				</ul>
+				<ul>
+				</ul>
+			</fieldset>
+			<fieldset data-role="fieldcontain">
+				<ul style="padding:0px 20px 0px 20px">
+					<label for="notes">Notes:</label>
+					<textarea name="notes" id="notes">
+					</textarea>
+				</ul>
+			</fieldset>
+			<fieldset data-role="fieldcontain">
+				<ul style="padding:0px 20px 0px 20px">
+					<input type="submit" id="submit" value="Submit" data-icon="forward" data-iconpos="right"/>
+				</ul>
+				<ul>
+				</ul>
+			</fieldset>
+
+			
+
+			<ul style="padding:0px 20px 0px 20px">
+				
+
+			<input type="button" id="displayLink" value="Display Data" data-theme="e" data-icon="grid" data-iconpos="right"/>
+
+			</ul>
+			<ul>
+			</ul>
+			<ul style="padding:0px 20px 0px 20px">
+				<input type="reset" id="clear" value="Clear Data" data-theme="e" data-icon="delete" data-iconpos="right"/>
+			</ul>
+<!--			<input type = "hidden" value = "true" /> -->
+			<ul>
+			</ul>
+		<div data-role="footer" data-position="fixed" data-id="home">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
+					<li><a href="#addItem" data-icon="plus" data-iconpos="top" class="ui-btn-active ui-state-persist">Add Event</a></li>
+					<li><a href="#loadData" data-icon="gear" data-iconpos="top">Load Data</a></li>
+				</ul>
+			</div>
+			</div>
+		</form>
+</div>
+
+<!--End addItem Page-->
+
+<!--Begin displayItems Page-->
+	<div data-role="page" id="displayItems" style="background:url(img/lightBlue.gif)" data-theme="b" data-content-theme="b">
+		<div data-role="header" id="displayHeader" data-position="fixed">
+			<h1>Display</h1>
+		</div>
+
+		<div data-role="content" id="eventHeader"style="background:url(img/lightBlue.gif)" data-theme="b" data-content-theme="b">
+
+		</div>
+
+
+		<div data-role="content" id="eventDisplay"style="background:url(img/lightBlue.gif)" data-theme="b" data-content-theme="b">
+
+		</div>
+
+		<div data-role="footer" data-position="fixed" data-id="home">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
+					<li><a href="#addItem" data-icon="plus" data-iconpos="top">Add Event</a></li>
+					<li><a href="#loadData" data-icon="gear" data-iconpos="top">Load Data</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+<!--Begin loadData Page-->
+	<div data-role="page" id="loadData" style="background:url(img/lightBlue.gif)" data-theme="b" data-content-theme="b">
+		<div data-role="header" id="displayHeader" data-position="fixed">
+			<h1>Load Data</h1>
+		</div>
+
+			<ul style="padding:20px 20px 20px 20px">
+				<input type="button" id="loadjson" value="Load JSON" data-theme="e" data-icon="refresh" data-iconpos="right"/>
+			</ul>
+
+			<ul style="padding:0px 20px 0px 20px">
+				<input type="button" id="loadxml" value="Load XML" data-theme="e" data-icon="refresh" data-iconpos="right"/>
+			</ul>
+
+			<ul style="padding:20px 20px 20px 20px">
+				<input type="button" id="loadcsv" value="Load CSV" data-theme="e" data-icon="refresh" data-iconpos="right"/>
+			</ul>
+
+		<div data-role="footer" data-position="fixed" data-id="home">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
+					<li><a href="#addItem" data-icon="plus" data-iconpos="top">Add Event</a></li>
+					<li><a href="#loadData" data-icon="gear" data-iconpos="top" class="ui-btn-active ui-state-persist">Load Data</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+<!-- JavaScript under here -->
+	<script src="js/libs/jquery-1.7.2.min.js"></script>
+	<script src="js/libs/jquery.mobile-1.1.1.min.js"></script>
+	<script type="text/javascript" src="js/libs/jquery.validate.min.js"></script>
+	<script src="js/json.js" type="text/javascript"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
