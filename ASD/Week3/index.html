@@ -15,17 +15,17 @@
 		<meta http-equiv="cleartype" content="on">
 		<!-- StyleSheets under here -->
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
-		<link rel="stylesheet" href="css/style.css"/>
+		<link rel="stylesheet" href="style.css"/>
 		<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
-		<script src="js/libs/modernizr.custom.min.js"></script> 
+		<script src="modernizr.custom.min.js"></script> 
 	</head>
 <body>
 <!--Begin Home Page-->
-	<div data-role="page" id="home" style="background:url(img/lightBlue.gif)" data-theme="b" data-content-theme="b">
+	<div data-role="page" id="home" style="background:url(lightBlue.gif)" data-theme="b" data-content-theme="b">
 		<div data-role="header" id="mainHeader" data-position="fixed">
 			<h1>Med Tracker</h1>
 		</div>
-			<img src="img/Logo320.png">
+			<img src="Logo320.png">
 			<h2>Keep Track of Your Families Medications!</h2>
 <!--			<p><a href="#addItem" data-role="button" data-icon="arrow-r" data-iconpos="right">Add Medication</a></p> -->
 		<div data-role="footer" data-position="fixed" data-id="home">
@@ -42,7 +42,7 @@
 
 <!--Begin addItem Page-->
 
-	<div data-role="page" id="addItem" style="background:url(img/lightBlue.gif)" data-theme="b" data-content-theme="b">
+	<div data-role="page" id="addItem" style="background:url(lightBlue.gif)" data-theme="b" data-content-theme="b">
 <!--Remove form action with jquery-->
 <!--		<form action="" method="post" id="addItemForm"> -->
 		<form id="addItemForm">
@@ -154,18 +154,41 @@
 <!--End addItem Page-->
 
 <!--Begin displayItems Page-->
-	<div data-role="page" id="displayItems" style="background:url(img/lightBlue.gif)" data-theme="b" data-content-theme="b">
+	<div data-role="page" id="displayItems" style="background:url(lightBlue.gif)" data-theme="b" data-content-theme="b">
 		<div data-role="header" id="displayHeader" data-position="fixed">
-			<h1>Display</h1>
+			<h1>Display Data</h1>
 		</div>
 
-		<div data-role="content" id="eventHeader"style="background:url(img/lightBlue.gif)" data-theme="b" data-content-theme="b">
+		<div data-role="content" id="eventHeader"style="background:url(lightBlue.gif)" data-theme="b" data-content-theme="b">
 
 		</div>
 
+		<div data-role="content" id="eventDisplay"style="background:url(lightBlue.gif)" data-theme="b" data-content-theme="b">
+			
+		</div>
 
-		<div data-role="content" id="eventDisplay"style="background:url(img/lightBlue.gif)" data-theme="b" data-content-theme="b">
+		<div data-role="footer" data-position="fixed" data-id="home">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
+					<li><a href="#addItem" data-icon="plus" data-iconpos="top">Add Event</a></li>
+					<li><a href="#loadData" data-icon="gear" data-iconpos="top">Load Data</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
 
+	<!--Begin displayCouch Page-->
+	<div data-role="page" id="displayCouch" style="background:url(lightBlue.gif)" data-theme="b" data-content-theme="b">
+		<div data-role="header" id="displayHeader" data-position="fixed">
+			<h1>Couch Data</h1>
+		</div>
+
+		<div data-role="content" id="couchHeader" style="background:url(lightBlue.gif)" data-theme="b" data-content-theme="b">
+		</div>
+
+		<div data-role="content" id="couchDisplay" style="background:url(lightBlue.gif)" data-theme="b" data-content-theme="b">	
+			
 		</div>
 
 		<div data-role="footer" data-position="fixed" data-id="home">
@@ -180,10 +203,14 @@
 	</div>
 
 <!--Begin loadData Page-->
-	<div data-role="page" id="loadData" style="background:url(img/lightBlue.gif)" data-theme="b" data-content-theme="b">
+	<div data-role="page" id="loadData" style="background:url(lightBlue.gif)" data-theme="b" data-content-theme="b">
 		<div data-role="header" id="displayHeader" data-position="fixed">
 			<h1>Load Data</h1>
 		</div>
+
+			<ul style="padding:20px 20px 20px 20px">
+				<input type="button" id="loadcouch" value="Load Couch Data" data-theme="b" data-icon="refresh" data-iconpos="right"/>
+			</ul>
 
 			<ul style="padding:20px 20px 20px 20px">
 				<input type="button" id="loadjson" value="Load JSON" data-theme="e" data-icon="refresh" data-iconpos="right"/>
@@ -209,10 +236,10 @@
 	</div>
 
 <!-- JavaScript under here -->
-	<script src="js/libs/jquery-1.7.2.min.js"></script>
-	<script src="js/libs/jquery.mobile-1.1.1.min.js"></script>
-	<script type="text/javascript" src="js/libs/jquery.validate.min.js"></script>
-	<script src="js/json.js" type="text/javascript"></script>
-	<script type="text/javascript" src="js/main.js"></script>
+	<script src="jquery-1.7.2.min.js"></script>
+	<script src="jquery.mobile-1.1.1.min.js"></script>
+	<script type="text/javascript" src="jquery.validate.min.js"></script>
+	<script src="json.js" type="text/javascript"></script>
+	<script type="text/javascript" src="main.js"></script>
 </body>
 </html>

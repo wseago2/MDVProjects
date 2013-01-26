@@ -1,0 +1,12 @@
+/* 
+Wesley Seago
+ASD Term 1301
+Med Tracker
+*/
+
+#home {
+	text-align: center;
+}
+
+label.error{display: block; margin: 10px 0px; color: red;}
+
