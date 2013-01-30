@@ -1,0 +1,10 @@
+{
+  "env": {
+    "local": {
+      "db": "http://127.0.0.1:5984/medtrackerproject"
+    },
+    "cloudant": {
+      "db": "https://collectsiblientheakingui:6JdwXv0JjUGhpJ43f0rgVqse@wseago2.cloudant.com/asdproject"
+    }  
+  }
+}
