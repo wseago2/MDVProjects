@@ -4,6 +4,7 @@
 
 //home page
 	$('#home').on('pageinit', function(){
+		
 	});
 
 //addItem page		
@@ -26,19 +27,16 @@
 			makeDiv.appendTo('#couchDisplay');
 			$.couch.db("medtrackerproject").view("asdproject/events", {
 					success: function(data) {
-//						console.log(data);
-						$.each(data.rows, function(index, event) {
-							var item = (event.value || value.doc);
-//								console.log(item);
-							var docId = event.id;
-//								console.log(docId);
+						console.log(data);
+						$.each(data.rows, function(index, event){
+							var docId = event.value.key;
 							var docRev = event.value.rev;
-								console.log(docRev);
+							var name = event.value.name;
 								$('#myCouchData').append(
 									$('<li>').append(
 										$('<a>')
-											.attr("href", "display.html?Events=" + docId + "&" + docRev)
-											.text(item.name)
+											.attr("href", "display.html?Events=" + docId + "&docRev=" + docRev)
+											.text(name)
 								)
 						);					
 				});
@@ -55,56 +53,100 @@
 					var urlParts = urlData.split('?');
 					var urlPairs = urlParts[1].split('&');
 					var urlValues = {};
-					for (var pair in urlPairs){
+					for (var pair in urlPairs) {
 						var keyValue = urlPairs[pair].split('=');
 						var key = decodeURIComponent(keyValue[0]);
 						var value = decodeURIComponent(keyValue[1]);
 						urlValues[key] = value;
-					}
-					return urlValues;
-					console.log(urlValues);
-			};
-					$.couch.db("medtrackerproject").openDoc(urlVars, {
+						}
+					return urlValues;	
+				};
+					var decodedKey = urlVars()["Events"];
+					var decodedRev = urlVars()["docRev"];			
+					$.couch.db("medtrackerproject").openDoc(decodedKey, {
 						success: function(data){
 							$(' ' +
 									'<li><p>Name: ' + data.name + '</p></li>' +
 									'<li><p>Medication Name: ' + data.medname + '</p></li>' +
-									'<li><p>Medication Type: ' + data.typename + '</p></li>' +
 									'<li><p>Dosage: ' + data.dosage + '</p></li>' +
 									'<li><p>Frequency: ' + data.frequency + '</P></li>' +
 									'<li><p>Date: ' + data.date + '</p></li>' +
 									'<li><p>Notes: ' + data.notes + '</p></li>' 
 								).appendTo("#displayRecord");
+						},
+							error: function(status){
+								console.log(status);
 							}
-						});
+					});
+							
+					
 
 
-//###################################################################################
-// deleteItem function
-//###################################################################################
+//deleteEvent function
 			$("#deleteEvent").on("click", function(){
-					deleteRecord();
-			});
-
-					var deleteRecord = function(){
-						if (confirm("Are you sure you want to delete this event?"))
+					if (confirm("Are you sure you want to delete this event?"))
 						{
-							$.couch.db("medtrackerproject").removeDoc(urlValues(), {
+							alert("Event deleted!");
+							var doc = {
+										_id:decodedKey,
+										_rev:decodedRev
+									};
+							$.couch.db("medtrackerproject").removeDoc(doc, {
 								success: function(data){
-									console.log(data);
+									$.mobile.changePage("index.html#displayCouch");
 								},
 								error: function(status){
 									console.log(status);
-									}
-								})
-							alert("Event deleted!")
-							
-							}
-					};
+								}
+							});
+						} else {
+								alert("Event was not deleted!");
+								}	
+			});
 
+//editEvent function
+			$("#editEvent").on("click", function(){
+					$.couch.db("medtrackerproject").openDoc(decodedKey, {
+						success: function(data){
+								$('#editname').val(data.name);
+								$('#editmedname').val(data.medname);
+								$('#editdosage').val(data.dosage);
+								$('#editfrequency').val(data.frequency);
+								$('#editdate').val(data.date);
+								$('#editnotes').val(data.notes);
+						}
+					});
+					$.mobile.changePage('edit.html');
+				});
+
+
+			$('#editPage').live("pageshow", function(){
+						$("#saveChanges").on("click", function(){
+							var doc = {
+    									_id: decodedKey,
+    									_rev: decodedRev,
+    									name: editname.value,
+    									medname: editmedname.value,
+    									dosage: editdosage.value,
+    									frequency: editfrequency.value,
+    									date: editdate.value,
+    									notes: editnotes.value
+										};
+						console.log(doc);
+						$.couch.db("medtrackerproject").saveDoc(doc, {
+  						success: function(data) {
+  							alert("Event was updated!");
+  							$.mobile.changePage("index.html#displayCouch");
+    						console.log(data); 						
+  						},
+    					error: function(status) {
+       					 	console.log(status);
+   						}
+					});
+						
+				});
+			});
 	});
-
-
 
 //###########################################################################################
 // storeData function
@@ -113,7 +155,6 @@
 				var item 				={};
 					item.name  			= $("#name").val();
 					item.medname 		= $("#medname").val();
-					item.typename		= $("input:radio[name=type]:checked").val();
 					item.dosage 		= $("#dosage").val();
 					item.frequency   	= frequency.value; 
 					item.date 	 		= $("#date").val();
@@ -122,7 +163,6 @@
 							{
 								name: item.name,
 								medname: item.medname,
-								typename: item.typename,
 								dosage: item.dosage,
 								frequency: item.frequency,
 								date: item.date,
@@ -131,8 +171,9 @@
 							{
 							success: function(data){
 								console.log(data);
-								alert("Event Saved!")
-							},
+								alert("Event Saved!");
+								$("#addItemForm")[0].reset();
+							}
 						});
 						$.mobile.changePage("#displayCouch");
 		};

@@ -1,35 +1,80 @@
 <!doctype html>  
 <html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>Edit Event</title>
-</head>
+	<head>
+		<meta charset="utf-8">
+		<title>Edit Event</title>
+	</head>
+	<body>
+		<div data-role="page" id="editPage" style="background:url(lightBlue.gif)">
+			<div data-role="header" id="editHeader" data-position="fixed">
+				<h2>Edit Event</h2>
+			</div>
+			<div data-role="content" style="background:url(lightBlue.gif)" data-theme="c" data-content-theme="c">
+				<form id="editItemForm">
+				
+				<fieldset data-role="fieldcontain">
+					<small>* fields are required</small>
+				</fieldset>
+				<fieldset data-role="fieldcontain">
+					<ul style="padding:0px 20px 0px 20px">
+						<label for="name">*Name:</label>
+						<input type="text" name="name" id="editname" class="required" value="" required placeholder="Enter Patient Name"/>
+					</ul>
+				</fieldset>	
+				<fieldset data-role="fieldcontain">
+					<ul style="padding:0px 20px 0px 20px">
+						<label for="medname">*Medication:</label>
+						<input type="text" name="medname" id="editmedname" class="required" value="" required placeholder="Enter Medication Name"/>
+					</ul>
+				</fieldset>
 
-
-
-
-<div data-role="page" id="edit" style="background:url(lightBlue.gif)">
-		<div data-role="header" id="displayHeader" data-position="fixed">
-			<h2>Edit Event</h2>
-		</div>
-
-		<div data-role="content" style="background:url(lightBlue.gif)" data-theme="b" data-content-theme="b">
-		
-		</div>
-
-		<div data-role="content" style="background:url(lightBlue.gif)">	
-			
-		</div>
-
-		
-
-		<div data-role="footer" data-position="fixed" data-id="home">
-			<div data-role="navbar">
-				<ul>
-					<li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
-					<li><a href="#addItem" data-icon="plus" data-iconpos="top">Add Event</a></li>
-					<li><a href="#displayCouch" data-icon="gear" data-iconpos="top">Load Data</a></li>
-				</ul>
+				<fieldset data-role="fieldcontain">
+					<ul style="padding:0px 20px 0px 20px">
+						<label for="dosage">Dosage: (ml or qty)</label>
+						<input type="range" name="dosage" id="editdosage" value="1" min="1" max="50" step="1" />
+					</ul>
+				</fieldset>
+				<fieldset data-role="fieldcontain">
+					<ul style="padding:0px 20px 0px 20px">
+						<label for="select" class="select">*Frequency:</label>
+						<select id="editfrequency" name="frequency">
+							<option value="0">Select Frequency</option>
+							<option value="Every 4 Hours">Every 4 Hours</option>
+							<option value="Every 6 Hours">Every 6 Hours</option>
+							<option value="Every 8 Hours">Every 8 Hours</option>
+							<option value="Every 12 Hours">Every 12 Hours</option>
+							<option value="Every 24 Hours">Every 24 Hours</option>
+						</select>
+					</ul>
+					<br>
+					<br>
+				</fieldset>
+				<fieldset data-role="fieldcontain">
+					<ul style="padding:0px 20px 0px 20px">
+						<label for="date">*Date:</label>
+						<input type="datetime-local" id="editdate" name="date" placeholder="MM/DD/YYYY">
+					</ul>
+					<ul>
+					</ul>
+				</fieldset>
+				<fieldset data-role="fieldcontain">
+					<ul style="padding:0px 20px 0px 20px">
+						<label for="notes">Notes:</label>
+						<textarea name="notes" id="editnotes">
+						</textarea>
+					</ul>
+				</fieldset>
+				<input type="button" id="saveChanges" value="Save Changes" data-theme="b" data-icon="forward" data-iconpos="right"/>
+			</form>
+			</div>
+			<div data-role="footer" data-position="fixed" data-id="home">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home" data-icon="home" data-iconpos="top">Home</a></li>
+						<li><a href="#addItem" data-icon="plus" data-iconpos="top">Add Event</a></li>
+						<li><a href="#displayCouch" data-icon="gear" data-iconpos="top">Load Data</a></li>
+					</ul>
+				</div>
 			</div>
 		</div>
-	</div>
+	</body>
